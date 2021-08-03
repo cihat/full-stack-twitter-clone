@@ -1,0 +1,25 @@
+{
+  "name": "full-stack-twitter-clone",
+  "version": "1.0.0",
+  "description": "### UML Diagram",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cihat/full-stack-twitter-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cihat/full-stack-twitter-clone/issues"
+  },
+  "homepage": "https://github.com/cihat/full-stack-twitter-clone#readme",
+  "devDependencies": {
+    "colors": "^1.4.0"
+  }
+}
