@@ -1,12 +1,6 @@
 const Tweet = require("./Tweet.js")
 
 class User {
-  constructor(name, handle, email) {
-    this.name = name
-    this.handle = handle
-    this.email = email
-  }
-
   profilePicture = ""
   bio = ""
   location = ""
@@ -16,6 +10,12 @@ class User {
   following = []
   tweets = []
   likedTweets = []
+
+  constructor(name, handle, email) {
+    this.name = name
+    this.handle = handle
+    this.email = email
+  }
 
   tweet(tweet) {
     this.tweets.push(tweet)
