@@ -1,20 +1,23 @@
 @startuml "Class Diagram"
 
-Title: Twitter
+Title: Twitter Clone
 
 class User {
   name: string
   handle: string
-  profilePicture: string
   email: string
+
+  profilePicture: string
   bio: string
   location: string
   website: string
   createdAt: Date
+  dateOfBirth: Date
+
   followers: [User]
   following: [User]
   likedTweet: [Tweet]
-
+  
   follow(user: User)
   tweet(tweet: Tweet)
   like(tweet: Tweet)
@@ -23,9 +26,11 @@ class User {
 
 class Tweet {
   author: User
-  createdAt: Date
   body: string
+  
+  createdAt: Date
   originalTweet: Tweet
+
   likes: [User]
   replies: [Tweet]
   retweets: [Tweet]
@@ -33,4 +38,3 @@ class Tweet {
 }
 
 @enduml
-architecture
