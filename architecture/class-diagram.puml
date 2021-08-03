@@ -1,0 +1,36 @@
+@startuml "Class Diagram"
+
+Title: Twitter
+
+class User {
+  name: string
+  handle: string
+  profilePicture: string
+  email: string
+  bio: string
+  location: string
+  website: string
+  createdAt: Date
+  followers: [User]
+  following: [User]
+  likedTweet: [Tweet]
+
+  follow(user: User)
+  tweet(tweet: Tweet)
+  like(tweet: Tweet)
+  retweet(tweet: Tweet)
+}
+
+class Tweet {
+  author: User
+  createdAt: Date
+  body: string
+  originalTweet: Tweet
+  likes: [User]
+  replies: [Tweet]
+  retweets: [Tweet]
+  attachments: []
+}
+
+@enduml
+architecture

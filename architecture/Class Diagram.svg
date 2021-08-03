@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="284px" preserveAspectRatio="none" style="width:301px;height:284px;background:#FFFFFF;" version="1.1" viewBox="0 0 301 284" width="301px" zoomAndPan="magnify"><defs><filter height="300%" id="f5yykhy390phc" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="61" x="113.75" y="17.4023">Twitter</text><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><rect codeLine="4" fill="#FEFECE" filter="url(#f5yykhy390phc)" height="242.3262" id="User" style="stroke:#A80036;stroke-width:1.5;" width="124" x="7" y="28.1992"/><ellipse cx="51.75" cy="44.1992" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M54.2231,50.3423 Q53.6421,50.6411 53.0029,50.7905 Q52.3638,50.9399 51.6582,50.9399 Q49.1514,50.9399 47.8315,49.2881 Q46.5117,47.6362 46.5117,44.5151 Q46.5117,41.3857 47.8315,39.7339 Q49.1514,38.082 51.6582,38.082 Q52.3638,38.082 53.0112,38.2314 Q53.6587,38.3809 54.2231,38.6797 L54.2231,41.4023 Q53.5923,40.8213 52.9988,40.5515 Q52.4053,40.2817 51.7744,40.2817 Q50.4297,40.2817 49.7449,41.3484 Q49.0601,42.415 49.0601,44.5151 Q49.0601,46.6069 49.7449,47.6736 Q50.4297,48.7402 51.7744,48.7402 Q52.4053,48.7402 52.9988,48.4705 Q53.5923,48.2007 54.2231,47.6196 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="26" x="72.25" y="48.7344">User</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="130" y1="60.1992" y2="60.1992"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="13" y="74.834">name: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="74" x="13" y="87.7891">handle: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="110" x="13" y="100.7441">profilePicture: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="66" x="13" y="113.6992">email: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="13" y="126.6543">bio: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="81" x="13" y="139.6094">location: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="13" y="152.5645">website: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="82" x="13" y="165.5195">createdAt: Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="88" x="13" y="178.4746">followers: [User]</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="88" x="13" y="191.4297">following: [User]</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="101" x="13" y="204.3848">likedTweet: [Tweet]</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="130" y1="210.7051" y2="210.7051"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="95" x="13" y="225.3398">follow(user: User)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="101" x="13" y="238.2949">tweet(tweet: Tweet)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="91" x="13" y="251.25">like(tweet: Tweet)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="112" x="13" y="264.2051">retweet(tweet: Tweet)</text><!--MD5=[beda3184aa15b1b3c35e5c391843a5ed]
+class Tweet--><rect codeLine="23" fill="#FEFECE" filter="url(#f5yykhy390phc)" height="151.6406" id="Tweet" style="stroke:#A80036;stroke-width:1.5;" width="121" x="166.5" y="73.1992"/><ellipse cx="205.8" cy="89.1992" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M208.2731,95.3423 Q207.6921,95.6411 207.0529,95.7905 Q206.4138,95.9399 205.7082,95.9399 Q203.2014,95.9399 201.8815,94.2881 Q200.5617,92.6362 200.5617,89.5151 Q200.5617,86.3857 201.8815,84.7339 Q203.2014,83.082 205.7082,83.082 Q206.4138,83.082 207.0612,83.2314 Q207.7087,83.3809 208.2731,83.6797 L208.2731,86.4023 Q207.6423,85.8213 207.0488,85.5515 Q206.4553,85.2817 205.8244,85.2817 Q204.4797,85.2817 203.7949,86.3484 Q203.1101,87.415 203.1101,89.5151 Q203.1101,91.6069 203.7949,92.6736 Q204.4797,93.7402 205.8244,93.7402 Q206.4553,93.7402 207.0488,93.4705 Q207.6423,93.2007 208.2731,92.6196 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="35" x="225.2" y="93.7344">Tweet</text><line style="stroke:#A80036;stroke-width:1.5;" x1="167.5" x2="286.5" y1="105.1992" y2="105.1992"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="172.5" y="119.834">author: User</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="82" x="172.5" y="132.7891">createdAt: Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="65" x="172.5" y="145.7441">body: string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="109" x="172.5" y="158.6992">originalTweet: Tweet</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="63" x="172.5" y="171.6543">likes: [User]</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="81" x="172.5" y="184.6094">replies: [Tweet]</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="90" x="172.5" y="197.5645">retweets: [Tweet]</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="80" x="172.5" y="210.5195">attachments: []</text><line style="stroke:#A80036;stroke-width:1.5;" x1="167.5" x2="286.5" y1="216.8398" y2="216.8398"/><!--MD5=[971439faa3b11cf913c4cc8166c8ef3b]
+@startuml "Class Diagram"
+
+Title: Twitter
+
+class User {
+  name: string
+  handle: string
+  profilePicture: string
+  email: string
+  bio: string
+  location: string
+  website: string
+  createdAt: Date
+  followers: [User]
+  following: [User]
+  likedTweet: [Tweet]
+
+  follow(user: User)
+  tweet(tweet: Tweet)
+  like(tweet: Tweet)
+  retweet(tweet: Tweet)
+}
+
+class Tweet {
+  author: User
+  createdAt: Date
+  body: string
+  originalTweet: Tweet
+  likes: [User]
+  replies: [Tweet]
+  retweets: [Tweet]
+  attachments: []
+}
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 15:40:07 EET 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: TR
+--></g></svg>
