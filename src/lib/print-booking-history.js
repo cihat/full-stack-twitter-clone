@@ -12,4 +12,3 @@ function printTweetHistory(user) {
 }
 
 module.exports = printTweetHistory
-  
