@@ -9,7 +9,10 @@ class Tweet {
   constructor(body, author) {
     this.author = author
     this.body = body
-    console.log(author)
+  }
+
+  static create({ body, author }) {
+    return new Tweet(body, author)
   }
 }
 

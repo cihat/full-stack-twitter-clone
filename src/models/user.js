@@ -1,4 +1,4 @@
-const Tweet = require("./Tweet.js")
+const Tweet = require("./tweet.js")
 
 class User {
   profilePicture = ""
@@ -35,6 +35,10 @@ class User {
     retweet.originalTweet = originalTweet
     this.tweets.push(retweet)
     originalTweet.retweets.push(retweet)
+  }
+
+  static create({ name, handle, email }) {
+    return new User(name, handle, email)
   }
 }
 
