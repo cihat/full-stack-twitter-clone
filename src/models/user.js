@@ -1,7 +1,9 @@
 const Tweet = require("./tweet.js")
+const uuid = require("uuid")
 
 class User {
-  constructor(name, handle, email) {
+  constructor(id = uuid.v4(), name, handle, email) {
+    this.id = id
     this.name = name
     this.handle = handle
     this.email = email
@@ -37,8 +39,8 @@ class User {
     originalTweet.retweets.push(retweet)
   }
 
-  static create({ name, handle, email }) {
-    return new User(name, handle, email)
+  static create({ id, name, handle, email }) {
+    return new User(id, name, handle, email)
   }
 }
 
