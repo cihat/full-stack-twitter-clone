@@ -1,7 +1,7 @@
 extends layout
 block content
-  h2 User Detail
-  p #{user.name}
+  h2 User Detail Page
+  p #{user.name} #{user.handle}
 
   h3 Tweet History
   if user.tweets.length
@@ -10,3 +10,5 @@ block content
         li From #{tweet.body}
   else
     p No tweets
+  button
+    a(href="/users") Back Users Page
