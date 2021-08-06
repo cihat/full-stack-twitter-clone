@@ -1,0 +1,10 @@
+
+extends layout
+block content
+  h2 users
+  p There are #{users.length} users tweeted
+
+  ol
+    each passenger in users
+      li
+        a(href=`/users/${passenger.id}`) #{passenger.name}
