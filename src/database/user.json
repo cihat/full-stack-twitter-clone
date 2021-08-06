@@ -1,92 +1,47 @@
 [[
   "1",
-  "2"
+  "2",
+  "3"
 ],{
-  "profilePicture": "3",
-  "bio": "3",
-  "location": "3",
-  "website": "3",
-  "createdAt": "4",
-  "followers": "5",
-  "following": "6",
-  "tweets": "7",
-  "likedTweets": "8",
-  "id": "9",
-  "name": "10",
-  "handle": "11",
-  "email": "12"
+  "profilePicture": "4",
+  "bio": "4",
+  "location": "4",
+  "website": "4",
+  "createdAt": "5",
+  "followers": "6",
+  "following": "7",
+  "tweets": "8",
+  "likedTweets": "9",
+  "id": "10",
+  "name": "11",
+  "handle": "12",
+  "email": "13"
 },{
-  "profilePicture": "3",
-  "bio": "3",
-  "location": "3",
-  "website": "3",
-  "createdAt": "4",
-  "followers": "13",
-  "following": "14",
-  "tweets": "15",
-  "likedTweets": "16",
-  "id": "17",
-  "name": "18",
-  "handle": "19",
-  "email": "20"
-},"","2021-08-06T14:33:02.498Z",[],[],[
-  "21",
-  "22",
-  "23",
-  "24"
-],[],"928873c9-3206-4fed-9632-abd4b088ea91","Cihat Salik","@chtslk","chtslk@twitter.com",[],[],[
-  "25"
-],[
-  "21"
-],"77b5f03d-ebbc-434c-a9d6-08a1df969bb4","Şevket Dayı","@svkdy","sevketdayi@twitter.com",{
-  "createdAt": "26",
-  "originalTweet": null,
-  "replies": "27",
-  "likes": "28",
-  "retweets": "29",
-  "attachments": "30",
-  "id": "31",
-  "author": "1",
-  "body": "32"
+  "profilePicture": "4",
+  "bio": "4",
+  "location": "4",
+  "website": "4",
+  "createdAt": "5",
+  "followers": "14",
+  "following": "15",
+  "tweets": "16",
+  "likedTweets": "17",
+  "id": "18",
+  "name": "19",
+  "handle": "20",
+  "email": "21"
 },{
-  "createdAt": "26",
-  "originalTweet": null,
-  "replies": "33",
-  "likes": "34",
-  "retweets": "35",
-  "attachments": "36",
-  "id": "37",
-  "author": "1",
-  "body": "38"
-},{
-  "createdAt": "26",
-  "originalTweet": null,
-  "replies": "39",
-  "likes": "40",
-  "retweets": "41",
-  "attachments": "42",
-  "id": "43",
-  "author": "1",
-  "body": "44"
-},{
-  "createdAt": "26",
-  "originalTweet": null,
-  "replies": "45",
-  "likes": "46",
-  "retweets": "47",
-  "attachments": "48",
-  "id": "49",
-  "author": "1",
-  "body": "50"
-},{
-  "createdAt": "26",
-  "originalTweet": "21",
-  "replies": "51",
-  "likes": "52",
-  "retweets": "53",
-  "attachments": "54",
-  "id": "55",
-  "body": "2"
-},"2021-08-06T14:33:02.499Z",[],[],[
-  "25"
-],[],"bc10824b-ab04-4b79-a56e-22d7ba16e713","Test 0!",[],[],[],[],"fbdff1ce-ace3-4a39-9595-479943e3d94f","Test 1!",[],[],[],[],"5a088687-8ff7-4726-a9d6-6bc0628c3b8c","Test 2!",[],[],[],[],"cfafe143-d9f0-4ea9-9ff4-c265d425d7a6","Test 3!",[],[],[],[],"This is a retweet."]
+  "profilePicture": "4",
+  "bio": "4",
+  "location": "4",
+  "website": "4",
+  "createdAt": "5",
+  "followers": "22",
+  "following": "23",
+  "tweets": "24",
+  "likedTweets": "25",
+  "id": "26",
+  "name": "27",
+  "handle": "28",
+  "email": "29"
+},"","2021-08-06T15:53:57.166Z",[],[],[],[],"f8c6a24e-c9b7-4995-87a2-2ae7a3e5791f","Cihat Salik","@chtslk","chtslk@twitter.com",[],[],[],[],"31c05a48-7f75-4862-a0f4-e04785c21524","Ahmet","@ahmtylmz","ahmetyılmaz@twitter.com",[],[],[],[],"56716f49-a834-4e7d-b11a-3070f1cc6c9e","mehmet","@mehmetylmz","mehmetyılmaz@twitter.com"]

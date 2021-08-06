@@ -1,94 +1,84 @@
 [[
   "1",
-  "2",
-  "3",
-  "4"
+  "2"
 ],{
-  "createdAt": "5",
+  "createdAt": "3",
   "originalTweet": null,
-  "replies": "6",
-  "likes": "7",
-  "retweets": "8",
-  "attachments": "9",
-  "id": "10",
-  "author": "11",
-  "body": "12"
+  "replies": "4",
+  "likes": "5",
+  "retweets": "6",
+  "attachments": "7",
+  "id": "8",
+  "author": "9",
+  "body": "10"
 },{
-  "createdAt": "5",
+  "createdAt": "3",
   "originalTweet": null,
-  "replies": "13",
-  "likes": "14",
-  "retweets": "15",
-  "attachments": "16",
-  "id": "17",
-  "author": "11",
-  "body": "18"
-},{
-  "createdAt": "5",
-  "originalTweet": null,
-  "replies": "19",
-  "likes": "20",
-  "retweets": "21",
-  "attachments": "22",
-  "id": "23",
-  "author": "11",
-  "body": "24"
-},{
-  "createdAt": "5",
-  "originalTweet": null,
-  "replies": "25",
-  "likes": "26",
-  "retweets": "27",
-  "attachments": "28",
-  "id": "29",
-  "author": "11",
-  "body": "30"
-},"2021-08-06T14:33:02.499Z",[],[],[
-  "31"
-],[],"bc10824b-ab04-4b79-a56e-22d7ba16e713",{
-  "profilePicture": "32",
-  "bio": "32",
-  "location": "32",
-  "website": "32",
-  "createdAt": "33",
-  "followers": "34",
-  "following": "35",
-  "tweets": "36",
-  "likedTweets": "37",
-  "id": "38",
-  "name": "39",
-  "handle": "40",
-  "email": "41"
-},"Test 0!",[],[],[],[],"fbdff1ce-ace3-4a39-9595-479943e3d94f","Test 1!",[],[],[],[],"5a088687-8ff7-4726-a9d6-6bc0628c3b8c","Test 2!",[],[],[],[],"cfafe143-d9f0-4ea9-9ff4-c265d425d7a6","Test 3!",{
-  "createdAt": "5",
+  "replies": "11",
+  "likes": "12",
+  "retweets": "13",
+  "attachments": "14",
+  "id": "15",
+  "author": "16",
+  "body": "17"
+},"2021-08-06T15:53:37.439Z",[],[],[
+  "18"
+],[],"cc7a1c88-5331-49f1-af48-fd4b9714eff0",{
+  "profilePicture": "19",
+  "bio": "19",
+  "location": "19",
+  "website": "19",
+  "createdAt": "20",
+  "followers": "21",
+  "following": "22",
+  "tweets": "23",
+  "likedTweets": "24",
+  "id": "25",
+  "name": "26",
+  "handle": "27",
+  "email": "28"
+},"Hello World!",[],[],[
+  "29"
+],[],"166905e9-3fb1-45a1-a3df-5a23c6091f17",{
+  "profilePicture": "19",
+  "bio": "19",
+  "location": "19",
+  "website": "19",
+  "createdAt": "3",
+  "followers": "30",
+  "following": "31",
+  "tweets": "32",
+  "likedTweets": "33",
+  "id": "34",
+  "name": "35",
+  "handle": "36",
+  "email": "37"
+},"Hello World! 2",{
+  "createdAt": "3",
   "originalTweet": "1",
-  "replies": "42",
-  "likes": "43",
-  "retweets": "44",
-  "attachments": "45",
-  "id": "46",
-  "body": "47"
-},"","2021-08-06T14:33:02.498Z",[],[],[
+  "replies": "38",
+  "likes": "39",
+  "retweets": "40",
+  "attachments": "41",
+  "id": "42",
+  "body": "16"
+},"","2021-08-06T15:53:37.438Z",[],[],[
   "1",
-  "2",
-  "3",
-  "4"
-],[],"928873c9-3206-4fed-9632-abd4b088ea91","Cihat Salik","@chtslk","chtslk@twitter.com",[],[],[],[],"This is a retweet.",{
-  "profilePicture": "32",
-  "bio": "32",
-  "location": "32",
-  "website": "32",
-  "createdAt": "33",
-  "followers": "48",
-  "following": "49",
-  "tweets": "50",
-  "likedTweets": "51",
-  "id": "52",
-  "name": "53",
-  "handle": "54",
-  "email": "55"
+  "29"
+],[
+  "2"
+],"f8c6a24e-c9b7-4995-87a2-2ae7a3e5791f","Cihat Salik","@chtslk","chtslk@twitter.com",{
+  "createdAt": "3",
+  "originalTweet": "2",
+  "replies": "43",
+  "likes": "44",
+  "retweets": "45",
+  "attachments": "46",
+  "id": "42",
+  "body": "9"
 },[],[],[
-  "31"
+  "2",
+  "18"
 ],[
   "1"
-],"77b5f03d-ebbc-434c-a9d6-08a1df969bb4","Şevket Dayı","@svkdy","sevketdayi@twitter.com"]
+],"6963f69c-2ffa-41c7-b0a7-3031612a8175","Şevket Dayı","@svkdy","sevketdayi@twitter.com",[],[],[],[],"This is a retweet.",[],[],[],[]]

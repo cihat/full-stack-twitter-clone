@@ -15,11 +15,11 @@ router.get("/", async (req, res) => {
 //   res.send(passenger)
 // })
 
-// router.delete("/:passengerId", async (req, res) => {
-//   await userDatabase.removeBy("id", req.params.passengerId)
+router.delete("/:passengerId", async (req, res) => {
+  await userDatabase.removeBy("id", req.params.passengerId)
 
-//   res.send("OK")
-// })
+  res.send("OK")
+})
 
 // router.get("/:passengerId", async (req, res) => {
 //   const passenger = await userDatabase.find(req.params.passengerId)
