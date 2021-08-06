@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js",
+    "dev": "nodemon nodemon --ignore '*.json' ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "colors": "^1.4.0"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "flatted": "^3.2.2"
   }
 }

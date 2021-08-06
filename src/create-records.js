@@ -37,7 +37,14 @@ const main = async () => {
       handle: "@ahmtylmz",
       email: "ahmetyılmaz@twitter.com",
     })
+
+    const mehmet = User.create({
+      name: "mehmet",
+      handle: "@mehmetylmz",
+      email: "mehmetyılmaz@twitter.com",
+    })
     await userDatabase.insert(ahmet)
+    await userDatabase.insert(mehmet)
 
     const users = await userDatabase.load()
     users.forEach(printTweetHistory)
