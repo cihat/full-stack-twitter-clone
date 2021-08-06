@@ -21,64 +21,64 @@
   "id": "15",
   "author": "16",
   "body": "17"
-},"2021-08-06T15:56:21.620Z",[],[],[
+},"2021-08-06T18:44:18.024Z",[],[],[
   "18"
-],[],"728cffb8-802d-4d12-b171-0e259a13c6d2",{
+],[],"489dc33f-13f6-4c69-ad21-cba14bf403eb",{
   "profilePicture": "19",
   "bio": "19",
   "location": "19",
   "website": "19",
-  "createdAt": "3",
-  "followers": "20",
-  "following": "21",
-  "tweets": "22",
-  "likedTweets": "23",
-  "id": "24",
-  "name": "25",
-  "handle": "26",
-  "email": "27"
-},"Hello World!",[],[],[
-  "28"
-],[],"16969c0b-8f05-47d6-bb3f-4269ed21df13",{
+  "createdAt": "20",
+  "followers": "21",
+  "following": "22",
+  "tweets": "23",
+  "likedTweets": "24",
+  "id": "25",
+  "name": "26",
+  "handle": "27",
+  "email": "28"
+},"This is a first tweet.",[],[],[
+  "29"
+],[],"153f33af-483b-4b7e-9839-e0da90ee6c85",{
   "profilePicture": "19",
   "bio": "19",
   "location": "19",
   "website": "19",
-  "createdAt": "3",
-  "followers": "29",
-  "following": "30",
-  "tweets": "31",
-  "likedTweets": "32",
-  "id": "33",
-  "name": "34",
-  "handle": "35",
-  "email": "36"
-},"Hello World! 2",{
+  "createdAt": "20",
+  "followers": "30",
+  "following": "31",
+  "tweets": "32",
+  "likedTweets": "33",
+  "id": "34",
+  "name": "35",
+  "handle": "36",
+  "email": "37"
+},"this is a second tweet.",{
   "createdAt": "3",
   "originalTweet": "1",
-  "replies": "37",
-  "likes": "38",
-  "retweets": "39",
-  "attachments": "40",
-  "id": "41",
+  "replies": "38",
+  "likes": "39",
+  "retweets": "40",
+  "attachments": "41",
+  "id": "42",
   "body": "16"
-},"",[],[],[
+},"","2021-08-06T18:44:18.023Z",[],[],[
   "1",
-  "28"
+  "29"
 ],[
   "2"
-],"d8b41b8f-46e3-4b49-9f65-aca0f89520c8","Cihat Salik","@chtslk","chtslk@twitter.com",{
+],"b545baac-d413-456c-a809-9d7b80d923b9","Cihat Salik","@chtslk","chtslk@twitter.com",{
   "createdAt": "3",
   "originalTweet": "2",
-  "replies": "42",
-  "likes": "43",
-  "retweets": "44",
-  "attachments": "45",
-  "id": "41",
+  "replies": "43",
+  "likes": "44",
+  "retweets": "45",
+  "attachments": "46",
+  "id": "42",
   "body": "9"
 },[],[],[
   "2",
   "18"
 ],[
   "1"
-],"a6a76fb6-9aaa-459c-a7f9-6aeb0cdc81df","Şevket Dayı","@svkdy","sevketdayi@twitter.com",[],[],[],[],"This is a retweet.",[],[],[],[]]
+],"b324ee0e-bb1e-4aba-9b5b-79fdba7c13eb","Şevket Dayı","@svkdy","sevketdayi@twitter.com",[],[],[],[],"This is a retweet.",[],[],[],[]]

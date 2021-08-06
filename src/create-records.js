@@ -17,8 +17,14 @@ const main = async () => {
       email: "sevketdayi@twitter.com",
     })
 
-    const tweet1 = Tweet.create({ body: "Hello World!", author: cihat })
-    const tweet2 = Tweet.create({ body: "Hello World! 2", author: sevket })
+    const tweet1 = Tweet.create({
+      body: "This is a first tweet.",
+      author: cihat,
+    })
+    const tweet2 = Tweet.create({
+      body: "this is a second tweet.",
+      author: sevket,
+    })
 
     cihat.tweet(tweet1)
     sevket.tweet(tweet2)

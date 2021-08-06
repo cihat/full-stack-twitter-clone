@@ -5,7 +5,6 @@ function printTweet(user) {
 }
 
 function printTweetHistory(user) {
-  console.log(user)
   if (user.tweets)
     return console.log(`${colors.red(user.name)} has no tweet(s) yet.`)
 
