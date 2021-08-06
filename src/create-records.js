@@ -39,10 +39,11 @@ const main = async () => {
     })
 
     const mehmet = User.create({
-      name: "mehmet",
+      name: "Mehmet",
       handle: "@mehmetylmz",
       email: "mehmetyılmaz@twitter.com",
     })
+
     await userDatabase.insert(ahmet)
     await userDatabase.insert(mehmet)
 

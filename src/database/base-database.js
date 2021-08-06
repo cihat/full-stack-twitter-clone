@@ -37,7 +37,7 @@ class BaseDatabase {
       `${__dirname}/${this.filename}.json`,
       flatted.stringify(objects, null, 2)
     )
-    
+
     console.log(objects)
   }
 
@@ -61,6 +61,20 @@ class BaseDatabase {
 
     objects.splice(index, 1)
     this.save(objects)
+  }
+
+  async removeBy(property, value) {
+    const objects = await this.load()
+
+    const index = objects.findIndex((o) => o[property] == value)
+
+    if (index == -1)
+      throw new Error(
+        `Cannot find ${this.model.name} instance with ${property} ${value}`
+      )
+
+    objects.splice(index, 1)
+    await this.save(objects)
   }
 
   update(object) {
