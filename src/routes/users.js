@@ -21,6 +21,12 @@ router.delete("/:passengerId", async (req, res) => {
   res.send("OK")
 })
 
+router.get("/:userId", async (req, res) => {
+  const user = await userDatabase.find(req.params.userId)
+  if (!user) return res.status(404).send("Cannot find user")
+  res.render("user", { user })
+})
+
 // router.get("/:passengerId", async (req, res) => {
 //   const passenger = await userDatabase.find(req.params.passengerId)
 //   if (!passenger) return res.status(404).send("Cannot find passenger")

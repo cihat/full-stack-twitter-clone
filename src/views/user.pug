@@ -1,0 +1,12 @@
+extends layout
+block content
+  h2 User Detail
+  p #{user.name}
+
+  h3 Tweet History
+  if user.tweets.length
+    ol
+      each tweet in user.tweets
+        li From #{tweet.body}
+  else
+    p No tweets
