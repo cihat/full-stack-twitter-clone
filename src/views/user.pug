@@ -7,7 +7,7 @@ block content
   if user.tweets.length
     ol
       each tweet in user.tweets
-        li From #{tweet.body}
+        li #{tweet.body} via #[b #{tweet.author}]
   else
     p No tweets
   button

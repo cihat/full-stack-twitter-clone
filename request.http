@@ -1,0 +1,31 @@
+POST  http://localhost:3001/users HTTP/1.1
+content-type: application/json
+
+{"name": "Hasan Kaşıbüyükbet", "handle": "@haso", "email": "gulliali@twitter.com"}
+
+###
+
+GET  http://localhost:3001/users HTTP/1.1
+
+###
+
+DELETE  http://localhost:3001/users/610eae663495d361245ce813 HTTP/1.1
+
+###
+
+PATCH   http://localhost:3001/users/610ed3fb5d0b9d963d1434b4 HTTP/1.1
+content-type: application/json
+
+{"name": "Cihat Salik"}
+
+###
+
+POST    http://localhost:3001/users/610ed74d7d22639b439c9390/tweets HTTP/1.1
+content-type: application/json
+
+###
+
+PATCH     http://localhost:3001/users/610ed74d7d22639b439c9390/ HTTP/1.1
+content-type: application/json
+
+{"name": "Hasan Kaşıbüyükbey"}

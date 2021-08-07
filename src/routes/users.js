@@ -9,14 +9,14 @@ router.get("/", async (req, res) => {
   res.render("users", { users })
 })
 
-// router.post("/", async (req, res) => {
-//   const passenger = await userDatabase.insert(req.body)
+router.post("/", async (req, res) => {
+  const user = await userDatabase.insert(req.body)
 
-//   res.send(passenger)
-// })
+  res.send(user)
+})
 
-router.delete("/:passengerId", async (req, res) => {
-  await userDatabase.removeBy("id", req.params.passengerId)
+router.delete("/:userId", async (req, res) => {
+  await userDatabase.removeBy("_id", req.params.userId)
 
   res.send("OK")
 })
@@ -27,24 +27,30 @@ router.get("/:userId", async (req, res) => {
   res.render("user", { user })
 })
 
-// router.get("/:passengerId", async (req, res) => {
-//   const passenger = await userDatabase.find(req.params.passengerId)
-//   if (!passenger) return res.status(404).send("Cannot find passenger")
-//   res.render("passenger", { passenger })
-// })
+router.post("/:userId/tweets", async (req, res) => {
+  const { userId } = req.params
+  const { body } = req.body
 
-// router.post("/:passengerId/bookings", async (req, res) => {
-//   const { passengerId } = req.params
-//   const { driverId, origin, destination } = req.body
+  const user = await userDatabase.find(userId)
+  // const tweet1 = await tweetDatabase.insert(body)
+  const tweet1 = {
+    body: "This is a tweet",
+    author: user.handle,
+  }
 
-//   const passenger = await userDatabase.find(passengerId)
-//   const driver = await tweetDatabase.find(driverId)
+  user.tweet(tweet1)
+  console.log(user)
 
-//   passenger.book(driver, origin, destination)
+  await userDatabase.update(userId, user)
 
-//   await userDatabase.update(passenger)
+  res.send(user)
+})
 
-//   res.send("OK")
-// })
+router.patch("/:userId", async (req, res) => {
+  const { userId } = req.params
+  const { name } = req.body
+
+  await userDatabase.update(userId, { name })
+})
 
 module.exports = router
