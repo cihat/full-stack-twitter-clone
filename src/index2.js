@@ -1,7 +1,7 @@
 const Tweet = require("./models/tweet.js")
 const User = require("./models/user.js")
 const colors = require("colors")
-const { tweetDatabase, userDatabase } = require("./database")
+const { tweetService, userService } = require("./services")
 
 const cihat = User.create({
   name: "Cihat Salik",
@@ -27,10 +27,10 @@ sevket.retweet(tweet1, "This is a retweet.")
 sevket.like(tweet1)
 
 async function main() {
-  await userDatabase.save([cihat, sevket])
-  await tweetDatabase.save([tweet1, tweet2, tweet3, tweet4])
+  await userService.save([cihat, sevket])
+  await tweetService.save([tweet1, tweet2, tweet3, tweet4])
 
-  const users = await userDatabase.load()
+  const users = await userService.load()
   console.table(users)
   console.table({ cihat, sevket })
 }

@@ -2,7 +2,7 @@
 
 In the project, I am doing it to develop myself on the back-end side. I spend my experience and effort to become a full-stack developer using Node.js and mongoDB.
 
-In this project, I preferred Node.js in Back-end, mongoDB as Database, object document mapper (ODM) mongoose, Vue.js and pug in Front-end, SCSS for styling. I'm thinking of deploying my project to Google Cloud.
+In this project, I preferred Node.js in Back-end, mongoDB as Service, object document mapper (ODM) mongoose, Vue.js and pug in Front-end, SCSS for styling. I'm thinking of deploying my project to Google Cloud.
 
 ### UML Diagram
 

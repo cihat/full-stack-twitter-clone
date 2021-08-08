@@ -1,7 +1,7 @@
 const fs = require("fs")
 const flatted = require("flatted")
 
-class BaseDatabase {
+class BaseService {
   constructor(model) {
     this.model = model
     this.filename = model.name.toLowerCase()
@@ -123,4 +123,4 @@ class BaseDatabase {
   // }
 }
 
-module.exports = BaseDatabase
+module.exports = BaseService

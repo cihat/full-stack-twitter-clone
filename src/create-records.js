@@ -1,7 +1,7 @@
 const Tweet = require("./models/tweet.js")
 const User = require("./models/user.js")
 const colors = require("colors")
-const { tweetDatabase, userDatabase } = require("./database")
+const { tweetService, userService } = require("./services")
 const printTweetHistory = require("./lib/print-booking-history")
 
 const main = async () => {
@@ -35,8 +35,8 @@ const main = async () => {
     cihat.like(tweet2)
     sevket.like(tweet1)
 
-    await userDatabase.save([cihat, sevket])
-    await tweetDatabase.save([tweet1, tweet2])
+    await userService.save([cihat, sevket])
+    await tweetService.save([tweet1, tweet2])
 
     const ahmet = User.create({
       name: "Ahmet",
@@ -50,10 +50,10 @@ const main = async () => {
       email: "mehmetyılmaz@twitter.com",
     })
 
-    await userDatabase.insert(ahmet)
-    await userDatabase.insert(mehmet)
+    await userService.insert(ahmet)
+    await userService.insert(mehmet)
 
-    const users = await userDatabase.load()
+    const users = await userService.load()
     users.forEach(printTweetHistory)
   } catch (e) {
     console.log(e)

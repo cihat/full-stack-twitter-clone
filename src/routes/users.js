@@ -1,56 +1,18 @@
-const { userDatabase, tweetDatabase } = require("../database")
-const flatted = require("flatted")
+const { userService, tweetService } = require("../services")
+const usersController = require("../controllers/users.js")
 
 const router = require("express").Router()
 
-router.get("/", async (req, res) => {
-  const users = await userDatabase.load()
+router.get("/", usersController.getUsers)
 
-  res.render("users", { users })
-})
+router.post("/", usersController.postUser)
 
-router.post("/", async (req, res) => {
-  const user = await userDatabase.insert(req.body)
+router.delete("/:userId", usersController.deleteUser)
 
-  res.send(user)
-})
+router.get("/:userId", usersController.getUser)
 
-router.delete("/:userId", async (req, res) => {
-  await userDatabase.removeBy("_id", req.params.userId)
+router.post("/:userId/tweets", usersController.postTweet)
 
-  res.send("OK")
-})
-
-router.get("/:userId", async (req, res) => {
-  const user = await userDatabase.find(req.params.userId)
-  if (!user) return res.status(404).send("Cannot find user")
-  res.render("user", { user })
-})
-
-router.post("/:userId/tweets", async (req, res) => {
-  const { userId } = req.params
-  const { body } = req.body
-
-  const user = await userDatabase.find(userId)
-  // const tweet1 = await tweetDatabase.insert(body)
-  const tweet1 = {
-    body: "This is a tweet",
-    author: user.handle,
-  }
-
-  user.tweet(tweet1)
-  console.log(user)
-
-  await userDatabase.update(userId, user)
-
-  res.send(user)
-})
-
-router.patch("/:userId", async (req, res) => {
-  const { userId } = req.params
-  const { name } = req.body
-
-  await userDatabase.update(userId, { name })
-})
+router.patch("/:userId", usersController.updateUserName)
 
 module.exports = router
