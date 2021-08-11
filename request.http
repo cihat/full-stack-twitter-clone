@@ -1,31 +1,51 @@
-POST  http://localhost:3001/users HTTP/1.1
+GET  http://localhost:3000/users HTTP/1.1
+
+###
+
+POST  http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
-{"name": "Hasan Kaşıbüyükbet", "handle": "@haso", "email": "gulliali@twitter.com"}
+{"name": "User3", "handle": "@caycı", "email": "caycı_huseyin@twitter.com"}
 
 ###
 
-GET  http://localhost:3001/users HTTP/1.1
+DELETE  http://localhost:3000/users/611390360384a2befbbc7466 HTTP/1.1
 
 ###
 
-DELETE  http://localhost:3001/users/610eae663495d361245ce813 HTTP/1.1
+GET http://localhost:3000/users/6113907d0384a2befbbc746d
 
 ###
 
-PATCH   http://localhost:3001/users/610ed3fb5d0b9d963d1434b4 HTTP/1.1
+POST    http://localhost:3000/users/6113b3dde2c623421172724b/tweets HTTP/1.1
 content-type: application/json
 
-{"name": "Cihat Salik"}
+{"body": "user1 bu tweet'i beğen"}
 
 ###
 
-POST    http://localhost:3001/users/610ed74d7d22639b439c9390/tweets HTTP/1.1
+PATCH   http://localhost:3000/users/6113a464e332bd183bf840d2 HTTP/1.1
 content-type: application/json
+
+{"name": "Cihat"}
 
 ###
 
-PATCH     http://localhost:3001/users/610ed74d7d22639b439c9390/ HTTP/1.1
+PATCH   http://localhost:3000/users/6113ad35f8fc2b305748eecd/following HTTP/1.1
 content-type: application/json
 
-{"name": "Hasan Kaşıbüyükbey"}
+{"userToFollowId": "6113ad2ef8fc2b305748eecb"}
+
+###
+
+PATCH   http://localhost:3000/users/6113b3d9e2c6234211727249/like HTTP/1.1
+content-type: application/json
+
+{"likeTweetId": "6113bc018826a54e61324e2e"}
+
+###
+
+PATCH   http://localhost:3000/users/6113b3d9e2c6234211727249/retweet HTTP/1.1
+content-type: application/json
+
+{"retweetId": "6113bc018826a54e61324e2e"}

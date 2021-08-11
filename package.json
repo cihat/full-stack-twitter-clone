@@ -4,8 +4,8 @@
   "description": "### UML Diagram",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js",
-    "dev": "nodemon nodemon --ignore '*.json' ./src/index.js",
+    "start": "node ./.bin/www",
+    "watch": "nodemon --ignore '*.json' ./src/.bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "express": "^4.17.1",
     "flatted": "^3.2.2",
     "mongoose": "^5.13.5",
+    "mongoose-autopopulate": "^0.14.0",
     "pug": "^3.0.2",
     "uuid": "^8.3.2"
   }
