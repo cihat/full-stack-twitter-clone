@@ -1,4 +1,3 @@
-const { userService, tweetService } = require("../services")
 const usersController = require("../controllers/users.js")
 
 const router = require("express").Router()
@@ -13,6 +12,12 @@ router.get("/:userId", usersController.getUser)
 
 router.post("/:userId/tweets", usersController.postTweet)
 
-router.patch("/:userId", usersController.updateUserName)
+router.patch("/:userId/following", usersController.follow)
+
+router.patch("/:userId", usersController.updateName)
+
+router.patch("/:userId/like", usersController.like)
+
+router.patch("/:userId/retweet", usersController.retweet)
 
 module.exports = router
