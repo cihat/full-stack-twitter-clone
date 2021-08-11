@@ -20,10 +20,13 @@
   },
   "homepage": "https://github.com/cihat/full-stack-twitter-clone#readme",
   "devDependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "pug-plain-loader": "^1.1.0"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "flatted": "^3.2.2",
     "mongoose": "^5.13.5",

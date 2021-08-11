@@ -5,7 +5,7 @@ GET  http://localhost:3000/users HTTP/1.1
 POST  http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
-{"name": "User3", "handle": "@caycı", "email": "caycı_huseyin@twitter.com"}
+{"name": "Hasan Kalemdaroğlu", "handle": "@hasankalemdar", "email": "hasankalemdar@twitter.com"}
 
 ###
 
@@ -13,14 +13,14 @@ DELETE  http://localhost:3000/users/611390360384a2befbbc7466 HTTP/1.1
 
 ###
 
-GET http://localhost:3000/users/6113907d0384a2befbbc746d
+GET http://localhost:3000/users/6113b3d9e2c6234211727249
 
 ###
 
-POST    http://localhost:3000/users/6113b3dde2c623421172724b/tweets HTTP/1.1
+POST    http://localhost:3000/users/6113dc40306ad96bcd30b253/tweets HTTP/1.1
 content-type: application/json
 
-{"body": "user1 bu tweet'i beğen"}
+{"body": "#gülegüle"}
 
 ###
 
@@ -31,21 +31,21 @@ content-type: application/json
 
 ###
 
-PATCH   http://localhost:3000/users/6113ad35f8fc2b305748eecd/following HTTP/1.1
+PATCH   http://localhost:3000/users/6113dc5e306ad96bcd30b255/following HTTP/1.1
 content-type: application/json
 
-{"userToFollowId": "6113ad2ef8fc2b305748eecb"}
+{"userToFollowId": "6113dc26306ad96bcd30b251"}
 
 ###
 
-PATCH   http://localhost:3000/users/6113b3d9e2c6234211727249/like HTTP/1.1
+PATCH   http://localhost:3000/users/6113dc40306ad96bcd30b253/like HTTP/1.1
 content-type: application/json
 
-{"likeTweetId": "6113bc018826a54e61324e2e"}
+{"likeTweetId": "6113dcaf306ad96bcd30b26c"}
 
 ###
 
-PATCH   http://localhost:3000/users/6113b3d9e2c6234211727249/retweet HTTP/1.1
+PATCH   http://localhost:3000/users/6113dc26306ad96bcd30b251/retweet HTTP/1.1
 content-type: application/json
 
-{"retweetId": "6113bc018826a54e61324e2e"}
+{"retweetId": "6113dcaf306ad96bcd30b26c"}
