@@ -1,6 +1,3 @@
-const fs = require("fs")
-const flatted = require("flatted")
-
 class BaseService {
   constructor(model) {
     this.model = model
@@ -10,117 +7,30 @@ class BaseService {
   async save(objects) {
     return await this.model.insertMany(objects)
   }
-  // async save(objects) {
-  //   await fs.writeFile(
-  //     `${__dirname}/${this.filename}.json`,
-  //     flatted.stringify(objects, null, 2),
-  //     (err) => {
-  //       if (err) throw err
-  //     }
-  //   )
-  // }
-
-  // async load() {
-  //   const file = await fs.readFile(
-  //     `${__dirname}/${this.filename}.json`,
-  //     "utf8",
-  //     (err) => {
-  //       if (err) throw err
-  //     }
-  //   )
-  //   const objects = await flatted.parse(file)
-
-  //   return await objects.map(this.model.create)
-  // }
 
   async load() {
     return this.model.find()
   }
-  // load() {
-  //   return new Promise((resolve, reject) => {
-  //     fs.readFile(`${__dirname}/${this.filename}.json`, "utf8", (err, file) => {
-  //       if (err) return reject(err)
-
-  //       const objects = flatted.parse(file)
-
-  //       resolve(objects.map(this.model.create))
-  //     })
-  //   })
-  // }
 
   async insert(object) {
     return await this.model.create(object)
   }
-  // async insert(object) {
-  //   const objects = await this.load()
-
-  //   if (!(object instanceof this.model)) {
-  //     object = this.model.create(object)
-  //   }
-
-  //   await this.save(objects.concat(object))
-
-  //   return object
-  // }
-
-  // async remove(index) {
-  //   const objects = await this.load()
-
-  //   objects.splice(index, 1)
-  //   this.save(objects)
-  // }
 
   async removeBy(property, value) {
     return this.model.deleteOne({ [property]: value })
   }
-  // async removeBy(property, value) {
-  //   const objects = await this.load()
-
-  //   const index = objects.findIndex((o) => o[property] == value)
-
-  //   if (index == -1)
-  //     throw new Error(
-  //       `Cannot find ${this.model.name} instance with ${property} ${value}`
-  //     )
-
-  //   objects.splice(index, 1)
-  //   await this.save(objects)
-  // }
 
   async update(id, object) {
     return await this.model.findByIdAndUpdate(id, object)
   }
-  // update(object) {
-  //   const objects = this.load()
-
-  //   const index = objects.findIndex((o) => o.id == object.id)
-
-  //   if (index == -1)
-  //     throw new Error(
-  //       `Cannot find ${this.model.name} instance with id ${object.id}`
-  //     )
-
-  //   objects.splice(index, 1, object)
-  //   this.save(objects)
-  // }
 
   async find(id) {
     return await this.model.findById(id)
   }
-  // async find(id) {
-  //   const objects = await this.load()
-  //   return objects.find((o) => o.id == id)
-
-  //   // if (err) return callback(err)
-  //   // callback(null, objects.find(o => o.id === id))
-  // }
 
   async findBy(property, value) {
     return this.model.findById({ [property]: value })
   }
-  // async findBy(property, value) {
-  //   return (await this.load()).find((o) => o[property] == value)
-  // }
 }
 
 module.exports = BaseService
