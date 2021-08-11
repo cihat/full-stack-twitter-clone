@@ -1,9 +1,13 @@
+const user = require("../models/user")
 const { userService, tweetService } = require("../services")
 
 exports.getUsers = async (req, res) => {
   const users = await userService.load()
 
-  res.render("users", { users })
+  const type = req.query.type || "json"
+
+  if (type == "json") res.send(users)
+  else res.render("users", { users })
 }
 
 exports.postUser = async (req, res) => {
@@ -21,31 +25,53 @@ exports.deleteUser = async (req, res) => {
 exports.getUser = async (req, res) => {
   const user = await userService.find(req.params.userId)
   if (!user) return res.status(404).send("Cannot find user")
-  res.render("user", { user })
+  const type = req.query.type || "json"
+
+  if (type == "json") res.send(user)
+  else res.render("user", { user })
 }
 
 exports.postTweet = async (req, res) => {
   const { userId } = req.params
   const { body } = req.body
 
-  const user = await userService.find(userId)
-  // const tweet1 = await tweetService.insert(body)
-  const tweet1 = {
-    body: "This is a tweet",
-    author: user.handle,
-  }
+  const tweet = await tweetService.tweet(userId, body)
 
-  user.tweet(tweet1)
-  console.log(user)
+  res.send(tweet)
+}
 
-  await userService.update(userId, user)
+exports.updateName = async (req, res) => {
+  const { userId } = req.params
+  const { name } = req.body
+
+  const updateName = await userService.updateName(userId, name)
+
+  res.send(updateName)
+}
+
+exports.follow = async (req, res) => {
+  const { userId } = req.params
+  const { userToFollowId } = req.body
+
+  const users = await userService.follow(userId, userToFollowId)
+
+  res.send(users)
+}
+
+exports.like = async (req, res) => {
+  const { userId } = req.params
+  const { likeTweetId } = req.body
+
+  const user = await tweetService.like(userId, likeTweetId)
 
   res.send(user)
 }
 
-exports.updateUserName = async (req, res) => {
+exports.retweet = async (req, res) => {
   const { userId } = req.params
-  const { name } = req.body
+  const { retweetId } = req.body
 
-  await userService.update(userId, { name })
+  const user = await tweetService.retweet(userId, retweetId)
+
+  res.send(user)
 }
