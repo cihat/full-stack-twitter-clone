@@ -9,16 +9,38 @@ class UserService extends BaseService {
 
   async tweet(userId, tweetId) {
     const user = await this.find(userId)
-    // const tweet = await tweetService.find(tweetId)
 
     const tweet = await tweetService.insert({
       user,
       tweet,
     })
-    user?.twwets.push(tweet)
+    user?.tweets.push(tweet)
     await user.save()
 
     return tweet
+  }
+
+  async updateName(userId, name) {
+    const user = await this.find(userId)
+    user.name = name
+
+    await user.save()
+    return user
+  }
+
+  async follow(userId, userToFollowId) {
+    const user = await this.find(userId)
+    const userToFollow = await this.find(userToFollowId)
+
+    if (userId == userToFollow) return
+
+    user.following.push(userToFollow)
+    userToFollow.followers.push(user)
+
+    await user.save()
+    await userToFollow.save()
+
+    return user
   }
 }
 
