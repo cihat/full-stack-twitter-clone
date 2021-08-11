@@ -7,3 +7,7 @@ In this project, I preferred Node.js in Back-end, mongoDB as Service, object doc
 ### UML Diagram
 
 ![plant uml ](https://raw.githubusercontent.com/cihat/full-stack-twitter-clone/ab54bbfa71ae1b4aed197ad92c4a5391c790572e/architecture/Class%20Diagram.svg)
+
+
+
+![Basic version](https://user-images.githubusercontent.com/57585087/129048076-a2b17cc9-3bc5-4447-baaa-14100f64aa03.png)

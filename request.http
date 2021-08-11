@@ -17,10 +17,10 @@ GET http://localhost:3000/users/6113b3d9e2c6234211727249
 
 ###
 
-POST    http://localhost:3000/users/6113dc40306ad96bcd30b253/tweets HTTP/1.1
+POST    http://localhost:3000/users/6113dc26306ad96bcd30b251/tweets HTTP/1.1
 content-type: application/json
 
-{"body": "#gülegüle"}
+{"body": "#istanbulsozlesmesiyasatır"}
 
 ###
 
@@ -41,11 +41,11 @@ content-type: application/json
 PATCH   http://localhost:3000/users/6113dc40306ad96bcd30b253/like HTTP/1.1
 content-type: application/json
 
-{"likeTweetId": "6113dcaf306ad96bcd30b26c"}
+{"likeTweetId": "6113de87306ad96bcd30b50b"}
 
 ###
 
 PATCH   http://localhost:3000/users/6113dc26306ad96bcd30b251/retweet HTTP/1.1
 content-type: application/json
 
-{"retweetId": "6113dcaf306ad96bcd30b26c"}
+{"retweetId": "6113de87306ad96bcd30b50b"}
