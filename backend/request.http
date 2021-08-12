@@ -5,7 +5,7 @@ GET  http://localhost:3000/users HTTP/1.1
 POST  http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
-{"name": "Hasan Kalemdaroğlu", "handle": "@hasankalemdar", "email": "hasankalemdar@twitter.com"}
+{"name": "Düz Can", "handle": "@xkraltr", "email": "duzcan02@twitter.com"}
 
 ###
 
@@ -17,10 +17,10 @@ GET http://localhost:3000/users/6113b3d9e2c6234211727249
 
 ###
 
-POST    http://localhost:3000/users/6113dc26306ad96bcd30b251/tweets HTTP/1.1
+POST    http://localhost:3000/users/611546eebd96a6a5e85c821d/tweets HTTP/1.1
 content-type: application/json
 
-{"body": "#istanbulsozlesmesiyasatır"}
+{"body": "Eyy Twitter !!! Sen kimsin yaa ??"}
 
 ###
 
@@ -31,17 +31,17 @@ content-type: application/json
 
 ###
 
-PATCH   http://localhost:3000/users/6113dc5e306ad96bcd30b255/following HTTP/1.1
+PATCH   http://localhost:3000/users/611546eebd96a6a5e85c821d/following HTTP/1.1
 content-type: application/json
 
 {"userToFollowId": "6113dc26306ad96bcd30b251"}
 
 ###
 
-PATCH   http://localhost:3000/users/6113dc40306ad96bcd30b253/like HTTP/1.1
+PATCH   http://localhost:3000/users/611546eebd96a6a5e85c821d/like HTTP/1.1
 content-type: application/json
 
-{"likeTweetId": "6113de87306ad96bcd30b50b"}
+{"likeTweetId": "61154790bd96a6a5e85c8274"}
 
 ###
 
