@@ -1,13 +1,13 @@
-const user = require("../models/user")
-const { userService, tweetService } = require("../services")
+const user = require('../models/user')
+const { userService, tweetService } = require('../services')
 
 exports.getUsers = async (req, res) => {
   const users = await userService.load()
 
-  const type = req.query.type || "json"
+  const type = req.query.type || 'json'
 
-  if (type == "json") res.send(users)
-  else res.render("users", { users })
+  if (type == 'json') res.send(users)
+  else res.render('users', { users })
 }
 
 exports.postUser = async (req, res) => {
@@ -17,18 +17,18 @@ exports.postUser = async (req, res) => {
 }
 
 exports.deleteUser = async (req, res) => {
-  await userService.removeBy("_id", req.params.userId)
+  await userService.removeBy('_id', req.params.userId)
 
-  res.send("OK")
+  res.send('OK')
 }
 
 exports.getUser = async (req, res) => {
   const user = await userService.find(req.params.userId)
-  if (!user) return res.status(404).send("Cannot find user")
-  const type = req.query.type || "json"
+  if (!user) return res.status(404).send('Cannot find user')
+  const type = req.query.type || 'json'
 
-  if (type == "json") res.send(user)
-  else res.render("user", { user })
+  if (type == 'json') res.send(user)
+  else res.render('user', { user })
 }
 
 exports.postTweet = async (req, res) => {

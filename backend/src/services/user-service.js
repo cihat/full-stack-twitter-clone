@@ -1,10 +1,10 @@
-const BaseService = require("./base-service")
-const User = require("../models/user")
-const tweetService = require("./tweet-service")
+const BaseService = require('./base-service')
+const User = require('../models/user')
+const tweetService = require('./tweet-service')
 
 class UserService extends BaseService {
   async findByName(name) {
-    return this.findBy("name", name)
+    return this.findBy('name', name)
   }
 
   async tweet(userId, tweetId) {
@@ -12,7 +12,7 @@ class UserService extends BaseService {
 
     const tweet = await tweetService.insert({
       user,
-      tweet,
+      tweet
     })
     user?.tweets.push(tweet)
     await user.save()

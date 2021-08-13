@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
   name: String,
@@ -12,40 +12,40 @@ const UserSchema = new mongoose.Schema({
   followers: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      autopopulate: { maxDepth: 2 },
-    },
+      ref: 'User',
+      autopopulate: { maxDepth: 2 }
+    }
   ],
   following: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      autopopulate: { maxDepth: 2 },
-    },
+      ref: 'User',
+      autopopulate: { maxDepth: 2 }
+    }
   ],
   tweets: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Tweet",
-      autopopulate: { maxDepth: 2 },
-    },
+      ref: 'Tweet',
+      autopopulate: { maxDepth: 2 }
+    }
   ],
   likedTweets: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Tweet",
-      autopopulate: { maxDepth: 2 },
-    },
+      ref: 'Tweet',
+      autopopulate: { maxDepth: 2 }
+    }
   ],
   retweets: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Tweet",
-      autopopulate: { maxDepth: 2 },
-    },
-  ],
+      ref: 'Tweet',
+      autopopulate: { maxDepth: 2 }
+    }
+  ]
 })
 
-UserSchema.plugin(require("mongoose-autopopulate"))
+UserSchema.plugin(require('mongoose-autopopulate'))
 
-module.exports = mongoose.model("User", UserSchema)
+module.exports = mongoose.model('User', UserSchema)

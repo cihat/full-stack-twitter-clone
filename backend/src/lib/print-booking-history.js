@@ -1,4 +1,4 @@
-const colors = require("colors")
+const colors = require('colors')
 
 function printTweet(user) {
   console.log(`${colors.blue(user.tweets)}`)

@@ -1,11 +1,11 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 const TweetSchema = new mongoose.Schema({
   body: String,
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    autopopulate: { maxDepth: 1 },
+    ref: 'User',
+    autopopulate: { maxDepth: 1 }
   },
   createdAt: Date,
   originalTweet: String,
@@ -13,14 +13,14 @@ const TweetSchema = new mongoose.Schema({
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      autopopulate: { maxDepth: 1 },
-    },
+      ref: 'User',
+      autopopulate: { maxDepth: 1 }
+    }
   ],
   retweets: [],
-  attachments: [],
+  attachments: []
 })
 
-TweetSchema.plugin(require("mongoose-autopopulate"))
+TweetSchema.plugin(require('mongoose-autopopulate'))
 
-module.exports = mongoose.model("Tweet", TweetSchema)
+module.exports = mongoose.model('Tweet', TweetSchema)
