@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  frontend:
+    build: frontend
+    ports:
+      - 8080:8080
+  backend:
+    build: backend
+    environment:
+      MONGODB_CONNECTION_STRING: "mongodb://mongodb/twitter-clone"
+    ports:
+      - 3000:3000
+  mongodb:
+    image: mongo:4.2
+    ports:
+      - 37017:27017
+    volumes:
+      - ./data:/data/db
