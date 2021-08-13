@@ -1,36 +1,36 @@
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
       user: {},
-      errMessage: "",
-      isLoading: true,
-    };
+      errMessage: '',
+      isLoading: true
+    }
   },
   async mounted() {
-    this.user = await this.fetchUser(this.$route.params.userId);
-    this.isLoading = false;
-    console.log(this.user);
+    this.user = await this.fetchUser(this.$route.params.userId)
+    this.isLoading = false
+    console.log(this.user)
   },
   methods: {
-    ...mapActions(["fetchUser"]),
-  },
-};
+    ...mapActions(['fetchUser'])
+  }
+}
 </script>
 
 <template lang="pug">
 .user
   p {{ user.name }}
-  p(v-if="isLoading") Please wait...
+  p(v-if='isLoading') Please wait...
   div(v-else)
     h1 User Detail
     p {{ user.name }}
 
     h2 Tweets
-    div(v-if="user.tweets.length")
+    div(v-if='user.tweets.length')
       ol 
-        li(v-for="tweet in user.tweets")
+        li(v-for='tweet in user.tweets')
           .tweet
             p {{ tweet.body }}
             span {{ tweet.likes.length }} kişi beğendi.❤️

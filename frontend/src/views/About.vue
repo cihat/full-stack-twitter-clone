@@ -4,8 +4,8 @@ h1 About Page
 
 <script>
 export default {
-  name: "About ",
-};
+  name: 'About'
+}
 </script>
 
 <style>

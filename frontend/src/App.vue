@@ -1,9 +1,9 @@
 <template lang="pug">
 #app
   #nav
-    router-link(to="/") Users
+    router-link(to='/') Users
     | &nbsp;|&nbsp;
-    router-link(to="/about") About
+    router-link(to='/about') About
   router-view
 </div>
 </template>
