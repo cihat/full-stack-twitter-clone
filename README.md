@@ -35,7 +35,8 @@ These commands run the individual `lint` and `lint-staged` scripts in both the `
 
 ### UML Diagram
 
-![plant uml ](https://github.com/cihat/full-stack-twitter-clone/blob/master/architecture/ClassDiagram.svg)
+![Class Diagram(Plant Uml)](https://user-images.githubusercontent.com/57585087/129368881-67e96d9b-2346-49d2-a288-05bae52aef1f.png)
+
 
 ![Basic version](https://user-images.githubusercontent.com/57585087/129048076-a2b17cc9-3bc5-4447-baaa-14100f64aa03.png)
 
