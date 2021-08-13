@@ -5,7 +5,7 @@ GET  http://localhost:3000/users HTTP/1.1
 POST  http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
-{"name": "Düz Can", "handle": "@xkraltr", "email": "duzcan02@twitter.com"}
+{"name": "Hasan Eviyıkık", "handle": "@xkraltr", "email": "duzcan02@twitter.com"}
 
 ###
 
@@ -17,10 +17,10 @@ GET http://localhost:3000/users/6113b3d9e2c6234211727249
 
 ###
 
-POST    http://localhost:3000/users/611546eebd96a6a5e85c821d/tweets HTTP/1.1
+POST    http://localhost:3000/users/611665d981cd5e0014776a2d/tweets HTTP/1.1
 content-type: application/json
 
-{"body": "Eyy Twitter !!! Sen kimsin yaa ??"}
+{"body": "Evimi kim yıktılaaaa !!!"}
 
 ###
 
