@@ -1,6 +1,9 @@
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/twitter-clone", {
+const connectionString =
+  process.env.MONGODB_CONNECTION_STRING || "mongodb://localhost/twitter-clone"
+
+mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
