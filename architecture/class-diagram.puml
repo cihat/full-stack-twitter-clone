@@ -18,10 +18,11 @@ class User {
   following: [User]
   likedTweet: [Tweet]
   
-  follow(user: User)
   tweet(tweet: Tweet)
-  like(tweet: Tweet)
-  retweet(tweet: Tweet)
+  follow(user: User)
+  updateName(user: User)
+  createUser(user: User)
+  createTweet(tweet: Tweet)
 }
 
 class Tweet {
@@ -34,7 +35,12 @@ class Tweet {
   likes: [User]
   replies: [Tweet]
   retweets: [Tweet]
-  attachments: []
+  attachments: [Tweet]
+
+  create(tweet: Tweet)
+  tweet(user: User)
+  like(user: User, tweet: Tweet)
+  retweet(user: User, tweet: Tweet)
 }
 
 @enduml
