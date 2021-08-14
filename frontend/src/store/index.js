@@ -8,11 +8,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isLogin: true
+    isLogin: false
   },
   mutations: {
     toggleLoginStatus(state, payload) {
-      if (state) state.isLogin = false
+      if (state) state.isLogin = true
       return
     }
   },

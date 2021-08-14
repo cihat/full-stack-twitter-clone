@@ -19,7 +19,7 @@ export default {
 
 <template>
   <div id="app">
-    <div v-if="isLogin" class="login-page">
+    <div v-if="!isLogin" class="login-page">
       <Login />
     </div>
     <div v-else class="layout">
