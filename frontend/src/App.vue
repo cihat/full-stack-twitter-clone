@@ -1,22 +1,28 @@
 <script>
 import SideBarLeft from './components/SideBarLeft'
 import SideBarRight from './components/SideBarRight'
+import Login from './views/Login.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
+  computed: {
+    ...mapState(['isLogin'])
+  },
   components: {
     SideBarLeft,
-    SideBarRight
-  },
-  data() {
-    return {}
+    SideBarRight,
+    Login
   }
 }
 </script>
 
 <template>
   <div id="app">
-    <div class="layout">
+    <div v-if="isLogin" class="login-page">
+      <Login />
+    </div>
+    <div v-else class="layout">
       <SideBarLeft />
       <router-view id="router-view" />
       <SideBarRight />
@@ -41,6 +47,8 @@ body {
   display: flex;
   margin-left: auto;
   margin-right: auto;
+  min-height: 100vh;
+  min-width: 100vw;
   .layout {
     // display: grid;
     // grid-template-columns: 275px 600px 350px;

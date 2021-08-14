@@ -7,8 +7,15 @@ axios.defaults.baseURL = 'http://localhost:3000'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    isLogin: true
+  },
+  mutations: {
+    toggleLoginStatus(state, payload) {
+      if (state) state.isLogin = false
+      return
+    }
+  },
   actions: {
     async fetchUsers() {
       const request = await axios.get('/users')
