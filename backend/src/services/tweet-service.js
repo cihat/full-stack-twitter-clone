@@ -6,7 +6,7 @@ class TweetService extends BaseService {
   async tweet(userId, body) {
     const user = await userService.find(userId)
     const tweet = await this.insert({ user, body })
-    user.tweets.push(tweet)
+    user.tweets.unshift(tweet)
     await user.save()
 
     return tweet

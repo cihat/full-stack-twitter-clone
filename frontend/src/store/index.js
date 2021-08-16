@@ -8,7 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isLogin: false
+    isLogin: true
   },
   mutations: {
     toggleLoginStatus(state, payload) {
@@ -25,6 +25,13 @@ export default new Vuex.Store({
       const request = await axios.get(`/users/${userId}`)
 
       return request.data
+    },
+    async postTweet({ state }, tweetBody) {
+      const tweet = await axios.post(`/users/6113dc26306ad96bcd30b251/tweets`, {
+        body: tweetBody
+      })
+
+      return tweet.data
     }
   },
   modules: {}

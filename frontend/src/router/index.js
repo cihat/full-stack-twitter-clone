@@ -9,6 +9,7 @@ import Messages from '../views/Messages.vue'
 import More from '../views/More.vue'
 import Notifications from '../views/Notifications.vue'
 import Profile from '../views/Profile.vue'
+import Signup from '../views/Signup.vue'
 
 Vue.use(VueRouter)
 
@@ -44,6 +45,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
   },
   {
     path: '/explore',

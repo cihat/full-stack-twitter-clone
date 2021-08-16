@@ -87,52 +87,55 @@ export default {
 </script>
 
 <template>
-  <div id="tweet" v-show="isVideoMode">
-    <img :src="userData.pictureUrl" />
-    <!-- https://100k-faces.glitch.me/random-image" class="avatar-image -->
-    <div class="tweet-content">
-      <div class="user-info">
-        <p class="name">{{ accountData.name }}</p>
-        <p class="username" v-show="userData.userId">
-          @{{ accountData.handle }}
-        </p>
-        <span>•</span>
-        <p class="date">{{ date }}h</p>
-      </div>
-      <div class="tweet-body">
-        <p>
-          {{ accountData.tweets[0].body }}
-          <!-- <span class="hashtag">#{{ tweetBody.author }}</span> -->
-        </p>
-      </div>
-      <div class="buttons">
-        <div class="button" id="reply">
-          <icons icon="comment" />
-          <span v-show="replyNumber">
-            {{
-            accountData.tweets[0].attachments.length
-          }}
-          </span>
+  <div class="container-tweets">
+    <div
+      id="tweets"
+      v-show="isVideoMode"
+      v-for="tweet in accountData.tweets"
+      :key="tweet.id"
+    >
+      <img :src="userData.pictureUrl" />
+      <!-- https://100k-faces.glitch.me/random-image" class="avatar-image -->
+      <div class="tweet-content">
+        <div class="user-info">
+          <p class="name">{{ accountData.name }}</p>
+          <p class="username" v-show="userData.userId">
+            @{{ accountData.handle }}
+          </p>
+          <span>•</span>
+          <p class="date">{{ date }}h</p>
         </div>
-        <div class="button" id="retweet">
-          <icons icon="retweet" />
-          <span v-show="reTweetNumber">{{
-            accountData.tweets[0].replies.length
-          }}</span>
+        <div class="tweet-body">
+          <p>
+            {{ tweet.body }}
+            <!-- <span class="hashtag">#{{ tweetBody.author }}</span> -->
+          </p>
         </div>
-        <div class="button" id="like">
-          <icons icon="like" />
-          <span v-show="likeNumber">{{ accountData.tweets[0].likes.length }}</span>
-        </div>
-        <div class="button" id="share">
-          <icons icon="share" />
+        <div class="buttons">
+          <div class="button" id="reply">
+            <icons icon="comment" />
+            <span v-show="replyNumber">
+              {{ tweet.attachments.length }}
+            </span>
+          </div>
+          <div class="button" id="retweet">
+            <icons icon="retweet" />
+            <span v-show="reTweetNumber">{{ tweet.replies.length }}</span>
+          </div>
+          <div class="button" id="like">
+            <icons icon="like" />
+            <span v-show="likeNumber">{{ tweet.likes.length }}</span>
+          </div>
+          <div class="button" id="share">
+            <icons icon="share" />
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <style scoped lang="scss">
-#tweet {
+#tweets {
   display: flex;
   align-items: flex-start;
   padding: 1rem 31px 11px;

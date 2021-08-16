@@ -21,30 +21,9 @@ export default {
   },
   methods: {
     ...mapMutations(['toggleLoginStatus']),
-    handleLogin: async function () {
-      // try {
-      //   const response = await login(this.userInfo)
-      //   if (!response.data.user) {
-      //     return
-      //   }
-      //   this.$store.dispatch('setLoginInfo', response.data.user)
-      //   return this.$router.push('/')
-      // } catch (err) {
-      //   this.$notification({
-      //     type: 'error',
-      //     message: 'Failed when authentication'
-      //   })
-      // }
-    },
-    validateForm: function () {
-      this.validationError.username = false
-      this.validationError.password = false
-      if (this.userInfo.username.length < 5) {
-        this.validationError.username = true
-      }
-      if (this.userInfo.password.length < 5) {
-        this.validationError.password = true
-      }
+    login() {
+      this.toggleLoginStatus()
+      this.$router.push({ path: '/home' })
     }
   }
 }
@@ -81,12 +60,14 @@ export default {
         />
         <label for="password">Password</label>
       </div>
-      <div class="login-submit" @click="toggleLoginStatus()">Log in</div>
+      <div class="login-submit" @click="login()">Log in</div>
       <div class="login-footer">
         <p>
           <span>Forgot password?</span>
           <span class="dot">&#183;</span>
-          <span>Sign up for Twitter</span>
+          <a href="/signup">
+            <span>Sign up for Twitter</span>
+          </a>
         </p>
       </div>
     </div>

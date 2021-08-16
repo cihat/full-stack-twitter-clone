@@ -1,9 +1,22 @@
 <script>
 import Icons from '@/components/Icons'
+import { mapActions } from 'vuex'
 export default {
   name: 'ZoneTweet',
   components: {
     Icons
+  },
+  data() {
+    return {
+      tweet: 'Bu bir test tweetidir..!!!🌸'
+    }
+  },
+  methods: {
+    ...mapActions(['postTweet', 'fetchUsers']),
+    async postTweetAndUpdateTweets() {
+      await this.postTweet(this.tweet)
+      this.$router.go(0)
+    }
   }
 }
 </script>
@@ -12,7 +25,7 @@ export default {
   <div id="zone-tweet">
     <img src="https://100k-faces.glitch.me/random-image" class="avatar-image" />
     <div class="input-context">
-      <input type="text" placeholder="What's happening" />
+      <input type="text" v-model="this.tweet" />
       <div class="icons">
         <div class="left-icon">
           <icons icon="image" />
@@ -22,7 +35,7 @@ export default {
           <icons icon="schedule" />
         </div>
         <div class="right-icon">
-          <button>Tweet</button>
+          <button @click="postTweetAndUpdateTweets()">Tweet</button>
         </div>
       </div>
     </div>
@@ -81,7 +94,7 @@ export default {
 
         svg {
           border-radius: 50%;
-          padding: .5rem;
+          padding: 0.5rem;
           box-sizing: content-box;
           &:hover {
             background-color: rgba(#1da1f2, 0.1);
