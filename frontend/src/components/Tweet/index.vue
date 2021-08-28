@@ -94,16 +94,20 @@ export default {
       v-for="tweet in accountData.tweets"
       :key="tweet.id"
     >
-      <img :src="userData.pictureUrl" />
+      <router-link :to="{ path: `/profile/${accountData._id}` }" tag="a">
+        <img :src="userData.pictureUrl" />
+      </router-link>
       <!-- https://100k-faces.glitch.me/random-image" class="avatar-image -->
       <div class="tweet-content">
         <div class="user-info">
-          <p class="name">{{ accountData.name }}</p>
-          <p class="username" v-show="userData.userId">
-            @{{ accountData.handle }}
-          </p>
-          <span>•</span>
-          <p class="date">{{ date }}h</p>
+          <router-link :to="{ path: `/profile/${accountData._id}` }" tag="a">
+            <p class="name">{{ accountData.name }}</p>
+            <p class="username" v-show="userData.userId">
+              {{ accountData.handle }}
+            </p>
+            <span>•</span>
+            <p class="date">{{ date }}h</p>
+          </router-link>
         </div>
         <div class="tweet-body">
           <p>
@@ -158,6 +162,10 @@ export default {
       display: flex;
       align-items: flex-start;
       margin-bottom: 11px;
+      a {
+        display: flex;
+        align-items: flex-start;
+      }
       * {
         margin-right: 4px;
         line-height: 17.58px;
