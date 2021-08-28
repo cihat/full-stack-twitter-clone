@@ -52,4 +52,4 @@ These commands run the individual `lint` and `lint-staged` scripts in both the `
 
 ![Basic-II version](https://user-images.githubusercontent.com/57585087/129362860-a552ed07-9426-4d87-9115-e35777793d8c.png)
 
-The starter repository of this project has been forked from [dashersw/stack](https://github.com/dashersw/stack.)
+The starter repository of this project has been forked from [dashersw/stack](https://github.com/dashersw/stack)
