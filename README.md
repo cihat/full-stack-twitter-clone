@@ -12,6 +12,11 @@ $ docker-compose up
 
 # Running without Docker
 
+You must have mongoDB, node.js and npm installed on your computer.
+Then, first, after the `cd backend` command, then the `npm i` or `npm install` command, if you are going to develop, you can restore the backend with the `npm watch ` command. If you have `started listening on http://localhost:3000/ in your terminal we are connected to mongoDB!!!🤪` if there is this command, it means its backend is working fine.
+
+Then for the frontend, you can install the packages by saying `yarn` in the `frontend` folder, then you can raise the frontend with `yarn serve`. If there is no problem, you can completely restore the project at `http://localhost:8080/`.
+
 ## Running backend
 
 ```sh
@@ -36,7 +41,6 @@ These commands run the individual `lint` and `lint-staged` scripts in both the `
 ### UML Diagram
 
 ![Class Diagram(Plant Uml)](https://user-images.githubusercontent.com/57585087/129368881-67e96d9b-2346-49d2-a288-05bae52aef1f.png)
-
 
 ![Basic version](https://user-images.githubusercontent.com/57585087/129048076-a2b17cc9-3bc5-4447-baaa-14100f64aa03.png)
 
