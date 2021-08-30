@@ -38,10 +38,10 @@ content-type: application/json
 
 ###
 
-PATCH   http://localhost:3000/users/611546eebd96a6a5e85c821d/like HTTP/1.1
+PATCH   http://localhost:3000/users/612cea71e2e1167e4e1547ce/like HTTP/1.1
 content-type: application/json
 
-{"likeTweetId": "61154790bd96a6a5e85c8274"}
+{"likeTweetId": "612cea85e2e1167e4e1547d1"}
 
 ###
 
