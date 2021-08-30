@@ -49,3 +49,10 @@ PATCH   http://localhost:3000/users/6113dc26306ad96bcd30b251/retweet HTTP/1.1
 content-type: application/json
 
 {"retweetId": "6113de87306ad96bcd30b50b"}
+
+### 
+
+
+GET  https://full-stack-twitter-clone-back.herokuapp.com/users HTTP/1.1
+
+###
