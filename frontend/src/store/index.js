@@ -27,7 +27,7 @@ export default new Vuex.Store({
       return request.data
     },
     async postTweet({ state }, tweetBody) {
-      const tweet = await axios.post(`/users/6113dc26306ad96bcd30b251/tweets`, {
+      const tweet = await axios.post(`/users/612cea71e2e1167e4e1547ce/tweets`, {
         body: tweetBody
       })
 

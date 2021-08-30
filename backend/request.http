@@ -53,6 +53,6 @@ content-type: application/json
 ### 
 
 
-GET  https://full-stack-twitter-clone-back.herokuapp.com/users HTTP/1.1
+GET  https://full-stack-twitter-clone-backend-i2smrx00x-cihat.vercel.app/users HTTP/1.1
 
 ###
