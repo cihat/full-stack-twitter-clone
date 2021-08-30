@@ -5,7 +5,7 @@ GET  http://localhost:3000/users HTTP/1.1
 POST  http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
-{"name": "Furkan Torun", "handle": "@frktrn", "email": "furkantorun@twitter.com"}
+{"name": "Düz Can", "handle": "@frktrn", "email": "duzcan@twitter.com"}
 
 ###
 
@@ -17,10 +17,10 @@ GET http://localhost:3000/users/6113b3d9e2c6234211727249
 
 ###
 
-POST    http://localhost:3000/users/61196cc1d81a4135a672afbc/tweets HTTP/1.1
+POST    http://localhost:3000/users/612cea71e2e1167e4e1547ce/tweets HTTP/1.1
 content-type: application/json
 
-{"body": "reis ölümlüdür."}
+{"body": "This is a test tweet."}
 
 ###
 
