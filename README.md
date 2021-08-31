@@ -4,13 +4,13 @@ In the project, I am doing it to develop myself on the back-end side. I spend my
 
 In this project, I preferred Node.js in Back-end, mongoDB as Service, object document mapper (ODM) mongoose, Vue.js and pug in Front-end, SCSS for styling. I'm thinking of deploying my project to Google Cloud.
 
-## Running the Twitter Clone
+## Running the Full Stack Twitter Clone with Docker
 
 ```sh
 $ docker-compose up
 ```
 
-# Running without Docker
+## Running without Docker
 
 You must have mongoDB, node.js and npm installed on your computer.
 Then, first, after the `cd backend` command, then the `npm i` or `npm install` command, if you are going to develop, you can restore the backend with the `npm watch ` command. If you have seen
