@@ -4,7 +4,7 @@ In the project, I am doing it to develop myself on the back-end side. I spend my
 
 In this project, I preferred Node.js in Back-end, mongoDB as Service, object document mapper (ODM) mongoose, Vue.js and pug in Front-end, SCSS for styling. I'm thinking of deploying my project to Google Cloud.
 
-## Running the Full Stack Twitter Clone with Docker
+## Running with Docker
 
 ```sh
 $ docker-compose up
