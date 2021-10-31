@@ -1,7 +1,10 @@
 {
   "name": "full-stack-twitter-clone",
   "version": "1.0.0",
-  "description": "### UML Diagram",
+  "engines": {
+    "node": "16.5.0"
+  },
+  "description": "Full Stack Twitter Clone",
   "main": "index.js",
   "scripts": {
     "start": "node src/.bin/www",
@@ -10,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cihat/full-stack-twitter-clone.git"
+    "url": "https://github.com/cihat/twitter-clone-backend"
   },
   "keywords": [],
   "author": "",

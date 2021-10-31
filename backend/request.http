@@ -5,7 +5,7 @@ GET  http://localhost:3000/users HTTP/1.1
 POST  http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
-{"name": "Düz Can", "handle": "@frktrn", "email": "duzcan@twitter.com"}
+{"name": "Cihat Salik", "handle": "@chtslk", "email": "chtslk@twitter.com"}
 
 ###
 
@@ -17,7 +17,7 @@ GET http://localhost:3000/users/6113b3d9e2c6234211727249
 
 ###
 
-POST    http://localhost:3000/users/612cea71e2e1167e4e1547ce/tweets HTTP/1.1
+POST    http://localhost:3000/users/617e978514928da134c12366/tweets HTTP/1.1
 content-type: application/json
 
 {"body": "This is a test tweet."}
