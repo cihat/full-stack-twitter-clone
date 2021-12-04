@@ -29,8 +29,15 @@ export default new Vuex.Store({
       return request.data
     },
     async postTweet({ state }, tweetBody) {
-      const tweet = await axios.post(`/users/617e978514928da134c12366/tweets`, {
+      const tweet = await axios.post(`/users/61ab8726363e9600169a2939/tweets`, {
         body: tweetBody
+      })
+
+      return tweet.data
+    },
+    async likeTweet({ state }, tweetId) {
+      const tweet = await axios.patch(`/users/61ab8726363e9600169a2939/like`, {
+        likeTweetId: tweetId
       })
 
       return tweet.data

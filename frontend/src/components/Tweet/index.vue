@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios'
 import Icons from '@/components/Icons'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'tweet',
@@ -32,13 +33,10 @@ export default {
     Icons
   },
   methods: {
-    addLike() {
-      this.likeNumber += 1
-    },
     async randomUser() {
       await axios
         .get('https://randomuser.me/api/')
-        .then((response) => {
+        .then(response => {
           // handle success
           const value = [...response.data.results][0]
           // console.log(value);
@@ -47,7 +45,7 @@ export default {
           this.userData.pictureUrl = value.picture.medium
           this.userData.userId = value.id.name
         })
-        .catch((error) => {
+        .catch(error => {
           // handle error
           console.log(error)
         })
@@ -55,14 +53,6 @@ export default {
           // console.log(this.userData);
         })
     },
-    async getQuote() {
-      await axios.get('https://api.quotable.io/random/').then((response) => {
-        const data = response.data
-        this.tweetBody.content = data.content
-        this.tweetBody.author = data.author
-      })
-    },
-
     setRandomValue() {
       let comment = Math.floor(Math.random() * 50) + 1
       let reTweet = Math.floor(comment * 4.3)
@@ -72,10 +62,14 @@ export default {
       this.likeNumber = like
       this.replyNumber = comment
       this.date = Math.floor(Math.random() * 24) + 1
+    },
+    ...mapActions(['likeTweet']),
+    async like(tweetId) {
+      await this.likeTweet(tweetId)
+      this.$router.go(0)
     }
   },
   async created() {
-    await this.getQuote()
     await this.randomUser()
     this.setRandomValue()
 
@@ -127,7 +121,9 @@ export default {
             <span v-show="reTweetNumber">{{ tweet.replies.length }}</span>
           </div>
           <div class="button" id="like">
-            <icons icon="like" />
+            <button v-on:click="like(tweet._id)">
+              <icons icon="like" />
+            </button>
             <span v-show="likeNumber">{{ tweet.likes.length }}</span>
           </div>
           <div class="button" id="share">
@@ -220,6 +216,12 @@ export default {
 
         span {
           color: rgba(green, 0.8);
+        }
+      }
+
+      #like {
+        button {
+          background-color: transparent;
         }
       }
       #like:hover {
