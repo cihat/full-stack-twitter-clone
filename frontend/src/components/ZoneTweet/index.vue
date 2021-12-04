@@ -8,24 +8,24 @@ export default {
   },
   data() {
     return {
-      tweet: 'Bu bir test tweetidir..!!!🌸'
+      tweet: ''
     }
   },
   methods: {
     ...mapActions(['postTweet', 'fetchUsers']),
-    async postTweetAndUpdateTweets() {
-      await this.postTweet(this.tweet)
+    async postTweetAndUpdateTweets(tweet) {
+      await this.postTweet(tweet)
       this.$router.go(0)
     }
   }
 }
 </script>
 
-<template >
+<template>
   <div id="zone-tweet">
     <img src="https://100k-faces.glitch.me/random-image" class="avatar-image" />
     <div class="input-context">
-      <input type="text" v-model="this.tweet" />
+      <input type="text" v-model="tweet" placeholder="What's happening?" />
       <div class="icons">
         <div class="left-icon">
           <icons icon="image" />
@@ -35,7 +35,7 @@ export default {
           <icons icon="schedule" />
         </div>
         <div class="right-icon">
-          <button @click="postTweetAndUpdateTweets()">Tweet</button>
+          <button @click="postTweetAndUpdateTweets(tweet)">Tweet</button>
         </div>
       </div>
     </div>
@@ -79,6 +79,8 @@ export default {
     }
     input:focus {
       outline: 0;
+      color: #000;
+      font-weight: 500;
     }
 
     .icons {
