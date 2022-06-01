@@ -1,7 +1,7 @@
 <script>
 // import {login} from '@/services/api'
 import icons from '../components/Icons'
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   name: 'LoginView',
   components: {
@@ -9,21 +9,31 @@ export default {
   },
   data() {
     return {
-      userInfo: {
-        username: 'cihat',
-        password: 'password'
-      },
-      validationError: {
-        username: false,
-        password: false
-      }
+      backendError: null,
+      loading: false,
+      email: '',
+      password: ''
     }
   },
   methods: {
-    ...mapMutations(['toggleLoginStatus']),
-    login() {
-      this.toggleLoginStatus()
-      this.$router.push({ path: '/home' })
+    ...mapActions('auth', ['login']),
+    async submitLogin(e) {
+      e.preventDefault()
+      this.backendError = null
+      this.loading = true
+      try {
+        await this.login({
+          email: this.email,
+          password: this.password
+        })
+        this.$router.push('/')
+      } catch (e) {
+        console.log('e.response.data', e.response.data)
+
+        this.backendError = e.response.data
+      } finally {
+        this.loading = false
+      }
     }
   }
 }
@@ -41,33 +51,43 @@ export default {
       <div class="login-form-item">
         <input
           id="username"
-          v-model="userInfo.username"
           type="text"
+          v-model="email"
+          value="email"
+          name="email"
           required
           autocomplete="off"
           @keypress.enter="handleLogin"
         />
-        <label for="username">Username</label>
+        <label for="username">E-mail</label>
       </div>
       <div class="login-form-item">
         <input
           id="password"
-          v-model="userInfo.password"
           type="password"
+          v-model="password"
+          name="password"
+          value="password"
           required
           autocomplete="off"
           @keypress.enter="handleLogin"
         />
         <label for="password">Password</label>
       </div>
+      <!-- <div>
+        <p class="backend-errors" v-if="backendError">
+          {{ backendError?.message }}
+        </p>
+      </div> -->
+
       <div class="login-submit" @click="login()">Log in</div>
       <div class="login-footer">
         <p>
           <span>Forgot password?</span>
           <span class="dot">&#183;</span>
-          <a href="/signup">
+          <router-link to="/register">
             <span>Sign up for Twitter</span>
-          </a>
+          </router-link>
         </p>
       </div>
     </div>

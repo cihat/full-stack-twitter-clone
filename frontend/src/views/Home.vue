@@ -12,22 +12,22 @@ export default {
       isLoading: true
     }
   },
-  async mounted() {
-    try {
-      this.users = await this.fetchUsers()
-    } catch (e) {
-      this.errMessage = e.message
-    } finally {
-      this.isLoading = false
-    }
-  },
+  // async mounted() {
+  //   try {
+  //     this.users = await this.fetchUsers()
+  //   } catch (e) {
+  //     this.errMessage = e.message
+  //   } finally {
+  //     this.isLoading = false
+  //   }
+  // },
   components: {
     ZoneTweet,
     Tweet
-  },
-  methods: {
-    ...mapActions(['fetchUsers'])
   }
+  // methods: {
+  //   ...mapActions(['fetchUsers'])
+  // }
 }
 </script>
 

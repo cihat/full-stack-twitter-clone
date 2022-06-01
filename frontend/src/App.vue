@@ -2,24 +2,39 @@
 import SideBarLeft from './components/SideBarLeft'
 import SideBarRight from './components/SideBarRight'
 import Login from './views/Login.vue'
-import { mapState } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'App',
   computed: {
-    ...mapState(['isLogin'])
+    ...mapGetters('auth', ['isLoggedIn']),
+    selectedKeys() {
+      return [this.$route.name]
+    },
+    layout() {
+      return `${this.$route.meta.layout || 'default'}-layout`
+    }
   },
-  components: {
-    SideBarLeft,
-    SideBarRight,
-    Login
+  async created() {
+    await this.init()
+  },
+  methods: {
+    ...mapActions('auth', ['init'])
   }
+  // components: {
+  //   SideBarLeft,
+  //   SideBarRight,
+  //   Login
+  // }
 }
 </script>
 
 <template>
   <div id="app">
-    <div v-if="!isLogin" class="login-page">
+    <div class="layout-wrapper">
+      <component :is="layout" :selectedKeys="selectedKeys"></component>
+    </div>
+    <!-- <div v-if="!isLogin" class="login-page">
       <Login />
     </div>
     <div v-else class="layout">
@@ -27,6 +42,7 @@ export default {
       <router-view id="router-view" />
       <SideBarRight />
     </div>
+  </div> -->
   </div>
 </template>
 
