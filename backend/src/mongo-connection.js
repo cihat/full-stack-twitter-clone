@@ -1,17 +1,21 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-const connectionString =
-  `${process.env.MONGODB_CONNECTION_STRING}` ||
-  'mongodb://localhost/twitter-clone'
+let connectionString = null
 
-mongoose.connect(connectionString, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+if (process.env.NODE_ENV === 'development') {
+  connectionString = `${process.env.MONGODB_CONNECTION_STRING_DEV}`
+  mongoose.set('debug', true)
+} else {
+  connectionString = `${process.env.MONGODB_CONNECTION_STRING_PROD}`
+}
 
-const db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:'))
-db.once('open', function () {
-  console.log('we are connected to mongoDB!!!🤪')
-})
+mongoose
+  .connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log(`Connected to ${connectionString}🤪`))
+  .catch((err) => console.error(err))
+
+module.exports = { mongoose }
