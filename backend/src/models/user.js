@@ -1,51 +1,70 @@
 const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
+const passportLocalMongoose = require('passport-local-mongoose')
+const { Schema } = mongoose
 
-const UserSchema = new mongoose.Schema({
-  name: String,
-  handle: String,
-  email: String,
-  createdAt: Date,
-  profilePicture: String,
-  bio: String,
-  location: String,
-  website: String,
-  followers: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      autopopulate: { maxDepth: 2 }
-    }
-  ],
-  following: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      autopopulate: { maxDepth: 2 }
-    }
-  ],
-  tweets: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Tweet',
-      autopopulate: { maxDepth: 2 }
-    }
-  ],
-  likedTweets: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Tweet',
-      autopopulate: { maxDepth: 2 }
-    }
-  ],
-  retweets: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Tweet',
-      autopopulate: { maxDepth: 2 }
-    }
-  ]
+const userSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      minlength: 2,
+      maxlength: 64,
+      unique: false
+    },
+    username: { type: String, unique: true, required: false },
+    email: { type: String, required: true, unique: true },
+    sessionId: String,
+    createdAt: Date,
+    profilePicture: String,
+    bio: String,
+    location: String,
+    website: String,
+    followers: [
+      {
+        type: 'ObjectId',
+        ref: 'User',
+        autopopulate: true
+      }
+    ],
+    following: [
+      {
+        type: 'ObjectId',
+        ref: 'User',
+        autopopulate: true
+      }
+    ],
+    tweets: [
+      {
+        type: 'ObjectId',
+        ref: 'Tweet',
+        autopopulate: true
+      }
+    ],
+    likedTweets: [
+      {
+        type: 'ObjectId',
+        ref: 'Tweet',
+        autopopulate: true
+      }
+    ],
+    retweets: [
+      {
+        type: 'ObjectId',
+        ref: 'Tweet',
+        autopopulate: true
+      }
+    ]
+  },
+  { timestamps: true }
+)
+
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: 'email',
+  passwordField: 'password',
+  populateFields: ['name', 'sessionId']
 })
 
-UserSchema.plugin(require('mongoose-autopopulate'))
+userSchema.plugin(autopopulate)
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('User', userSchema)
