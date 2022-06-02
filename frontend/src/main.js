@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
-import store, { store_ } from './store'
+import store from './store'
 
 import AuthLayout from './layouts/AuthLayout.vue'
 import DefaultLayout from './layouts/DefaultLayout.vue'
