@@ -26,8 +26,8 @@ export default function init(store) {
         name: 'register',
         meta: { layout: 'auth' },
         component: Register,
-        beforeenter(to, from, next) {
-          if (store.state.auth.user) return next('/')
+        beforeEnter(to, from, next) {
+          if (store.state.account.user) return next('/')
           return next()
         }
       },
@@ -36,8 +36,8 @@ export default function init(store) {
         name: 'auth',
         meta: { layout: 'auth' },
         component: Login,
-        beforeenter(to, from, next) {
-          if (store.state.auth.user) return next('/')
+        beforeEnter(to, from, next) {
+          if (store.state.account.user) return next('/')
           return next()
         }
       },
@@ -46,8 +46,8 @@ export default function init(store) {
         name: 'Home',
         meta: { layout: 'default' },
         component: Home,
-        beforeenter(to, from, next) {
-          if (!store.state.auth.user) return next('/login')
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
           return next()
         }
       },
