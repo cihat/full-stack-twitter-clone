@@ -62,7 +62,7 @@ const userSchema = new Schema(
 userSchema.plugin(passportLocalMongoose, {
   usernameField: 'email',
   passwordField: 'password',
-  populateFields: ['name', 'sessionId']
+  populateFields: ['name, sessionId']
 })
 
 userSchema.plugin(autopopulate)

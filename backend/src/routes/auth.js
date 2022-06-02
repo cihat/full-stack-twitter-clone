@@ -75,7 +75,7 @@ router.post(
   passport.authenticate('local', {
     failWithError: true
   }),
-  (req, res) => {
+  async (req, res) => {
     res.send(req.user)
   },
   (err, req, res, next) => {
@@ -96,7 +96,6 @@ router.get('/session', (req, res) => {
 
 //! logout
 router.delete('/session', async (req, res, next) => {
-  console.log('logout')
   req.logout()
 
   res.sendStatus(200)

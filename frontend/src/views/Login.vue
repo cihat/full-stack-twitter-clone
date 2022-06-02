@@ -16,7 +16,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('auth', ['login']),
+    ...mapActions('account', ['login']),
     async submitLogin(e) {
       e.preventDefault()
       this.backendError = null
@@ -48,39 +48,43 @@ export default {
       <h2>Log in to Twitter</h2>
     </div>
     <div class="login-form">
-      <div class="login-form-item">
-        <input
-          id="username"
-          type="text"
-          v-model="email"
-          value="email"
-          name="email"
-          required
-          autocomplete="off"
-          @keypress.enter="handleLogin"
-        />
-        <label for="username">E-mail</label>
-      </div>
-      <div class="login-form-item">
-        <input
-          id="password"
-          type="password"
-          v-model="password"
-          name="password"
-          value="password"
-          required
-          autocomplete="off"
-          @keypress.enter="handleLogin"
-        />
-        <label for="password">Password</label>
-      </div>
-      <!-- <div>
-        <p class="backend-errors" v-if="backendError">
-          {{ backendError?.message }}
-        </p>
-      </div> -->
+      <form @submit="submitLogin">
+        <div class="login-form-item">
+          <input
+            id="username"
+            type="text"
+            v-model="email"
+            value="email"
+            name="email"
+            required
+            autocomplete="off"
+            @keypress.enter="handleLogin"
+          />
+          <label for="username">E-mail</label>
+        </div>
+        <div class="login-form-item">
+          <input
+            id="password"
+            type="password"
+            v-model="password"
+            name="password"
+            value="password"
+            required
+            autocomplete="off"
+            @keypress.enter="handleLogin"
+          />
+          <label for="password">Password</label>
+        </div>
+        <div class="backend_errors_container">
+          <p class="backend-errors" v-if="backendError">
+            {{ backendError.message }}
+          </p>
+        </div>
 
-      <div class="login-submit" @click="login()">Log in</div>
+        <div class="login-submit">
+          <button type="primary" html-type="submit" block="block">Login</button>
+        </div>
+      </form>
       <div class="login-footer">
         <p>
           <span>Forgot password?</span>
@@ -187,15 +191,30 @@ $border-light: 1px solid
         -webkit-user-select: none;
       }
     }
+
+    .backend_errors_container {
+      margin-top: 2rem;
+      & > p {
+        color: red;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
   }
   &-submit {
-    background-color: $color-blue;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 999px;
-    padding: 1rem;
-    color: #fff;
-    cursor: pointer;
+    button {
+      background-color: $color-blue;
+      padding: 1rem;
+      height: 50px;
+      width: 100%;
+      height: 100%;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      border-radius: 999px;
+      cursor: pointer;
+    }
   }
   &-footer {
     text-align: center;
