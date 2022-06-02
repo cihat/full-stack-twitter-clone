@@ -1,48 +1,25 @@
 <script>
-import SideBarLeft from './components/SideBarLeft'
-import SideBarRight from './components/SideBarRight'
-import Login from './views/Login.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'App',
   computed: {
-    ...mapGetters('auth', ['isLoggedIn']),
+    ...mapGetters('account', ['isLoggedIn']),
     selectedKeys() {
       return [this.$route.name]
     },
     layout() {
       return `${this.$route.meta.layout || 'default'}-layout`
     }
-  },
-  async created() {
-    await this.init()
-  },
-  methods: {
-    ...mapActions('auth', ['init'])
   }
-  // components: {
-  //   SideBarLeft,
-  //   SideBarRight,
-  //   Login
-  // }
 }
 </script>
 
 <template>
   <div id="app">
     <div class="layout-wrapper">
-      <component :is="layout" :selectedKeys="selectedKeys"></component>
+      <component :is="layout" :selectedKeys="selectedKeys" />
     </div>
-    <!-- <div v-if="!isLogin" class="login-page">
-      <Login />
-    </div>
-    <div v-else class="layout">
-      <SideBarLeft />
-      <router-view id="router-view" />
-      <SideBarRight />
-    </div>
-  </div> -->
   </div>
 </template>
 
@@ -65,10 +42,7 @@ body {
   margin-right: auto;
   min-height: 100vh;
   min-width: 100vw;
-  .layout {
-    // display: grid;
-    // grid-template-columns: 275px 600px 350px;
-    // grid-gap: 40px;
+  .layout-wrapper {
     display: flex;
     margin-left: auto;
     margin-right: auto;
