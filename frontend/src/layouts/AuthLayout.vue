@@ -15,4 +15,10 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#router-view {
+  flex: auto;
+  max-width: 600px;
+  // flex-grow: 40;
+}
+</style>
