@@ -152,7 +152,7 @@ export default function init(store) {
         }
       },
       {
-        path: '/profile/:id',
+        path: '/profile',
         name: 'Profile',
         meta: { layout: 'default' },
         component: Profile,
