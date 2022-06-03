@@ -78,14 +78,14 @@ export default {
         </router-link>
       </li>
       <li>
-        <router-link to="/profile/6113dc26306ad96bcd30b251" tag="a">
+        <router-link to="/profile" tag="a">
           <icons icon="profile-fill" v-if="$route.name === 'Profile'" />
           <icons icon="profile" v-else />
           <h4 :class="{ active: $route.name === 'Profile' }">Profile</h4>
         </router-link>
       </li>
       <li>
-        <router-link to="/More" tag="a">
+        <router-link to="/more" tag="a">
           <icons icon="more-fill" v-if="$route.name === 'More'" />
           <icons icon="more" v-else />
           <h4 :class="{ active: $route.name === 'More' }">More</h4>
@@ -133,8 +133,8 @@ export default {
     height: calc(100vh - 50px);
 
     li {
-      &:nth-last-child(2) {
-        margin-bottom: 8px;
+      &:nth-last-child(3) {
+        margin-bottom: 20px;
       }
       a {
         transition: background-color 0.1s;
