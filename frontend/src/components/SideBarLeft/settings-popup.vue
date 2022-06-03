@@ -1,5 +1,5 @@
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import Icons from '@/components/Icons'
 
 export default {
@@ -14,6 +14,9 @@ export default {
   },
   components: {
     Icons
+  },
+  computed: {
+    ...mapGetters('account', ['user'])
   },
   methods: {
     ...mapActions('account', ['logout']),
@@ -35,34 +38,16 @@ export default {
     <ul>
       <li>
         <router-link to="/">
-          <p>Home</p>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/settings">
-          <p>Settings</p>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/profile">
-          <p>Profile</p>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/help">
-          <p>Help</p>
+          <p>Add an existing account</p>
         </router-link>
       </li>
       <li @click="submitLogout">
-        <!-- <router-link to="/login"> -->
-        <span>Sign Out</span>
-        <!-- <icons class="ticks" icon="more-fill" /> -->
-        <!-- </router-link> -->
+        <p>
+          Sign Out&#160;
+          <span> @{{ this.user.username }} </span>
+        </p>
       </li>
     </ul>
-    <!-- <div class="close-button" v-on:click="hidePopup">
-      <icons class="ticks" icon="more-fill" />
-    </div> -->
   </div>
 </template>
 
@@ -72,12 +57,12 @@ export default {
   align-content: center;
   justify-content: space-between;
   position: absolute;
-  top: 56px;
-  right: 16px;
+  top: 80px;
+  right: 10px;
   width: 260px;
   background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.135);
   padding: 16px;
   z-index: 10;
 
@@ -88,14 +73,17 @@ export default {
   ul {
     width: 100%;
     li {
+      padding: 10px;
       &:hover {
         background-color: #f5f5f5;
         text-decoration: underline;
+        cursor: pointer;
       }
 
       p {
-        &:hover {
-          cursor: pointer;
+        span {
+          font-weight: 700;
+          color: #333333;
         }
       }
     }
