@@ -52,70 +52,132 @@ export default function init(store) {
         }
       },
       {
-        path: '/users',
-        name: 'Users',
+        path: '/',
+        name: 'Home',
         meta: { layout: 'default' },
-        component: Users
-      },
-      {
-        path: '/users/:userId',
-        name: 'User',
-        meta: { layout: 'default' },
-        component: User
-      },
-      {
-        path: '/about',
-        name: 'About',
-        meta: { layout: 'default' },
-        component: About
+        component: Home,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/home',
         name: 'Home',
         meta: { layout: 'default' },
-        component: Home
+        component: Home,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
+      },
+      {
+        path: '/users',
+        name: 'Users',
+        meta: { layout: 'default' },
+        component: Users,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
+      },
+      {
+        path: '/users/:userId',
+        name: 'User',
+        meta: { layout: 'default' },
+        component: User,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
+      },
+      {
+        path: '/about',
+        name: 'About',
+        meta: { layout: 'default' },
+        component: About,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/explore',
         name: 'Explore',
         meta: { layout: 'default' },
-        component: Explore
+        component: Explore,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/notifications',
         name: 'Notifications',
         meta: { layout: 'default' },
-        component: Notifications
+        component: Notifications,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/messages',
         name: 'Messages',
         meta: { layout: 'default' },
-        component: Messages
+        component: Messages,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/bookmarks',
         name: 'Bookmarks',
         meta: { layout: 'default' },
-        component: Bookmarks
+        component: Bookmarks,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/lists',
         name: 'Lists',
         meta: { layout: 'default' },
-        component: Lists
+        component: Lists,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/profile/:id',
         name: 'Profile',
         meta: { layout: 'default' },
-        component: Profile
+        component: Profile,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       },
       {
         path: '/more',
         name: 'More',
         meta: { layout: 'default' },
-        component: More
+        component: More,
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
+      },
+      {
+        path: '/*',
+        meta: { layout: 'default' },
+        beforeEnter(to, from, next) {
+          if (!store.state.account.user) return next('/login')
+          return next()
+        }
       }
     ]
   })
