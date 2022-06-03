@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <span>
-      <a href="#">Terms of Service</a>
+      <a
+        href="https://github.com/cihat/full-stack-twitter-clone"
+        target="_blank"
+        >Open Source Twitter Clone</a
+      >
     </span>
     <span>
       <a href="#">Privacy Policy</a>
@@ -16,7 +20,7 @@
       <a href="#">More···</a>
     </span>
     <span>
-      <a href="#">© 2021 Twitter, Inc.</a>
+      <a href="https://github.com/cihat" target="_blank"> github/cihat ©2022</a>
     </span>
   </div>
 </template>
