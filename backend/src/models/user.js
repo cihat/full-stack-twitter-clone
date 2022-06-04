@@ -24,35 +24,45 @@ const userSchema = new Schema(
       {
         type: 'ObjectId',
         ref: 'User',
-        autopopulate: true
+        autopopulate: {
+          maxDepth: 2
+        }
       }
     ],
     following: [
       {
         type: 'ObjectId',
         ref: 'User',
-        autopopulate: true
+        autopopulate: {
+          maxDepth: 2
+        }
       }
     ],
     tweets: [
       {
         type: 'ObjectId',
         ref: 'Tweet',
-        autopopulate: true
+        autopopulate: {
+          maxDepth: 2
+        }
       }
     ],
     likedTweets: [
       {
         type: 'ObjectId',
         ref: 'Tweet',
-        autopopulate: true
+        autopopulate: {
+          maxDepth: 2
+        }
       }
     ],
     retweets: [
       {
         type: 'ObjectId',
         ref: 'Tweet',
-        autopopulate: true
+        autopopulate: {
+          maxDepth: 2
+        }
       }
     ]
   },
