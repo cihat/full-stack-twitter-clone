@@ -1,6 +1,6 @@
 const express = require('express')
 const indexRouter = require('./routes/index')
-const usersRouter = require('./routes/users')
+const tweetRouter = require('./routes/tweet')
 const authRouter = require('./routes/auth')
 
 const { mongoose } = require('./mongo-connection')
@@ -65,7 +65,7 @@ app.all('*', (req, res, next) => {
 })
 
 app.use('/api/', indexRouter)
-app.use('/api/users', usersRouter)
+app.use('/api/tweet', tweetRouter)
 app.use('/api/auth', authRouter)
 
 app.use(errors())

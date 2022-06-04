@@ -5,7 +5,7 @@
     "node": "16.5.0"
   },
   "description": "Full Stack Twitter Clone",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node src/.bin/www",
     "dev": "nodemon --ignore '*.json' ./src/.bin/www",
