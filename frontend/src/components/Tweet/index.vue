@@ -5,126 +5,65 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'tweet',
-  data() {
-    return {
-      likeNumber: null,
-      reTweetNumber: null,
-      replyNumber: null,
-      date: null,
-      userData: {
-        firstName: null,
-        lastName: null,
-        pictureUrl: null,
-        userId: null
-      },
-      tweetBody: {
-        content: '',
-        author: ''
-      },
-      isVideoMode: false
-    }
-  },
   props: {
-    accountData: {
+    tweetData: {
       type: Object
     }
   },
   components: {
     Icons
   },
-  methods: {
-    async randomUser() {
-      await axios
-        .get('https://randomuser.me/api/')
-        .then(response => {
-          // handle success
-          const value = [...response.data.results][0]
-          // console.log(value);
-          this.userData.firstName = value.name.first
-          this.userData.lastName = value.name.last
-          this.userData.pictureUrl = value.picture.medium
-          this.userData.userId = value.id.name
-        })
-        .catch(error => {
-          // handle error
-          console.log(error)
-        })
-        .then(() => {
-          // console.log(this.userData);
-        })
-    },
-    setRandomValue() {
-      let comment = Math.floor(Math.random() * 50) + 1
-      let reTweet = Math.floor(comment * 4.3)
-      let like = Math.floor(reTweet * 15.7)
-
-      this.reTweetNumber = reTweet
-      this.likeNumber = like
-      this.replyNumber = comment
-      this.date = Math.floor(Math.random() * 24) + 1
-    },
-    ...mapActions(['likeTweet']),
-    async like(tweetId) {
-      await this.likeTweet(tweetId)
-      this.$router.go(0)
-    }
-  },
-  async created() {
-    await this.randomUser()
-    this.setRandomValue()
-
-    setTimeout(() => {
-      this.isVideoMode = true
-    }, 1000)
-  }
+  methods: {}
 }
 </script>
 
 <template>
-  <div class="container-tweets">
-    <div
-      id="tweets"
-      v-show="isVideoMode"
-      v-for="tweet in accountData.tweets"
-      :key="tweet.id"
-    >
-      <router-link :to="{ path: `/profile/${accountData._id}` }" tag="a">
-        <img :src="userData.pictureUrl" />
+  <div class="container-tweet">
+    <div id="tweet">
+      <router-link :to="{ path: `/profile/${tweetData._id}` }" tag="a">
+        <!-- <img :src="userData.pictureUrl" /> -->
+        <img src="https://100k-faces.glitch.me/random-image" alt="" />
       </router-link>
-      <!-- https://100k-faces.glitch.me/random-image" class="avatar-image -->
       <div class="tweet-content">
         <div class="user-info">
-          <router-link :to="{ path: `/profile/${accountData._id}` }" tag="a">
-            <p class="name">{{ accountData.name }}</p>
-            <p class="username" v-show="userData.userId">
-              {{ accountData.handle }}
+          <router-link
+            :to="{ path: `/profile/${tweetData.author._id}` }"
+            tag="a"
+          >
+            <p class="name">{{ tweetData.author.name }}</p>
+            <p class="username" v-show="tweetData.author.username">
+              {{ tweetData.author.username }}
             </p>
             <span>•</span>
-            <p class="date">{{ date }}h</p>
+            <p class="date">{{ tweetData.createdAt }}</p>
           </router-link>
         </div>
         <div class="tweet-body">
           <p>
-            {{ tweet.body }}
-            <!-- <span class="hashtag">#{{ tweetBody.author }}</span> -->
+            {{ tweetData.content }}
+            <!-- <span class="hashtag">#{{ tweetData.author.username }}</span> -->
           </p>
         </div>
         <div class="buttons">
           <div class="button" id="reply">
             <icons icon="comment" />
-            <span v-show="replyNumber">
-              {{ tweet.attachments.length }}
+            <span v-show="tweetData.replies.length">
+              {{ tweetData.quoteTweets.length }}
             </span>
           </div>
           <div class="button" id="retweet">
             <icons icon="retweet" />
-            <span v-show="reTweetNumber">{{ tweet.replies.length }}</span>
+            <span v-show="tweetData.retweets.length">{{
+              tweetData.replies.length
+            }}</span>
           </div>
           <div class="button" id="like">
-            <button v-on:click="like(tweet._id)">
+            <button>
               <icons icon="like" />
             </button>
-            <span v-show="likeNumber">{{ tweet.likes.length }}</span>
+            <span v-show="tweetData.likes.length">{{
+              tweetData.likes.length
+            }}</span>
           </div>
           <div class="button" id="share">
             <icons icon="share" />
@@ -135,7 +74,7 @@ export default {
   </div>
 </template>
 <style scoped lang="scss">
-#tweets {
+#tweet {
   display: flex;
   align-items: flex-start;
   padding: 1rem 31px 11px;
