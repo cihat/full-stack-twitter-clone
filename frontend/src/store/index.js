@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 
 import account from './account'
+import tweet from './tweet'
 
 Vue.use(Vuex)
 
@@ -16,12 +17,14 @@ axios.defaults.withCredentials = true
 
 const store = new Vuex.Store({
   modules: {
-    account
+    account,
+    tweet
   }
 })
 
 export default async function init() {
   await store.dispatch('account/init')
+  await store.dispatch('tweet/init')
 
   return store
 }
