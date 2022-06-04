@@ -1,31 +1,58 @@
 <script>
 import Icons from '@/components/Icons'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: 'ZoneTweet',
+  name: 'CreateTweet',
   components: {
     Icons
   },
   data() {
     return {
-      tweet: ''
+      tweet: '',
+      loading: false,
+      backendErrors: null
     }
   },
+  computed: {
+    ...mapGetters('account', ['user'])
+  },
   methods: {
-    ...mapActions(['postTweet', 'fetchUsers']),
-    async postTweetAndUpdateTweets(tweet) {
-      await this.postTweet(tweet)
-      this.$router.go(0)
+    ...mapActions('tweet', ['createTweet']),
+    ...mapActions('tweet', ['fetchTweets']),
+    async submitCreateTweet(e) {
+      e.preventDefault()
+      this.backendErrors = null
+      this.loading = false
+
+      try {
+        await this.createTweet({
+          content: this.tweet,
+          author: this.user._id
+        })
+        this.tweet = ''
+      } catch (e) {
+        this.backendErrors = e.response.data
+      } finally {
+        this.loading = false
+        this.fetchTweets()
+      }
     }
   }
 }
 </script>
 
 <template>
-  <div id="zone-tweet">
+  <form id="zone-tweet" @submit="submitCreateTweet">
     <img src="https://picsum.photos/200" class="avatar-image" />
     <div class="input-context">
-      <input type="text" v-model="tweet" placeholder="What's happening?" />
+      <input
+        type="text"
+        v-model="tweet"
+        placeholder="What's happening?"
+        name="content"
+        maxlength="140"
+        minlength="1"
+      />
       <div class="icons">
         <div class="left-icon">
           <icons icon="image" />
@@ -35,11 +62,16 @@ export default {
           <icons icon="schedule" />
         </div>
         <div class="right-icon">
-          <button @click="postTweetAndUpdateTweets(tweet)">Tweet</button>
+          <button type="primary" html-type="submit" block="block">Tweet</button>
         </div>
       </div>
     </div>
-  </div>
+    <div class="backend_erros_container" v-if="backendErrors">
+      <p class="backend-errors">
+        {{ backendErrors.message }}
+      </p>
+    </div>
+  </form>
 </template>
 
 <style scoped lang="scss">
