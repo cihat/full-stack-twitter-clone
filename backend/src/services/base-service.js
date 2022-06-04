@@ -9,7 +9,11 @@ class BaseService {
   }
 
   async load() {
-    return this.model.find()
+    return this.model.find().sort({ createdAt: -1 })
+  }
+
+  async loadLimit(limit) {
+    return this.model.find().limit(limit)
   }
 
   async insert(object) {
