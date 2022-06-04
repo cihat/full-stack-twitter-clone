@@ -1,33 +1,23 @@
 <script>
-import ZoneTweet from '@/components/ZoneTweet'
+import CreateTweet from '@/components/CreateTweet'
 import Tweet from '@/components/Tweet'
-import { mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
   data() {
     return {
-      users: [],
       errMessage: '',
       isLoading: true
     }
   },
-  // async mounted() {
-  //   try {
-  //     this.users = await this.fetchUsers()
-  //   } catch (e) {
-  //     this.errMessage = e.message
-  //   } finally {
-  //     this.isLoading = false
-  //   }
-  // },
   components: {
-    ZoneTweet,
+    CreateTweet,
     Tweet
+  },
+  computed: {
+    ...mapState('tweet', ['tweets'])
   }
-  // methods: {
-  //   ...mapActions(['fetchUsers'])
-  // }
 }
 </script>
 
@@ -37,12 +27,12 @@ export default {
       <h3>Home</h3>
       <img src="@/assets/img/starsicon.png" alt="" class="icon" />
     </div>
-    <ZoneTweet />
+    <CreateTweet />
     <p v-if="errMessage">{{ errMessage }}</p>
-    <p v-else-if="isLoading">Please wait..⌛️.</p>
+    <p v-else-if="!tweets && tweets.length < 0">Please wait..⌛️.</p>
     <div v-else>
-      <ul v-for="user in users" :key="user.id">
-        <Tweet :accountData="user" />
+      <ul v-for="tweet in tweets" :key="tweet.id">
+        <Tweet :tweetData="tweet" />
       </ul>
     </div>
   </div>
