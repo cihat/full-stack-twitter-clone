@@ -23,7 +23,7 @@ export default {
 
 <template>
   <div id="zone-tweet">
-    <img src="https://100k-faces.glitch.me/random-image" class="avatar-image" />
+    <img src="https://picsum.photos/200" class="avatar-image" />
     <div class="input-context">
       <input type="text" v-model="tweet" placeholder="What's happening?" />
       <div class="icons">
