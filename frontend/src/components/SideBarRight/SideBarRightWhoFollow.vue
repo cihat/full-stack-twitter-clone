@@ -15,8 +15,8 @@ export default {
   },
   created() {
     axios
-      .get('https://randomuser.me/api/')
-      .then((response) => {
+      .get('https://100k-faces.glitch.me/random-image')
+      .then(response => {
         // handle success
         const value = [...response.data.results][0]
         // console.log(value);
@@ -25,7 +25,7 @@ export default {
         this.userData.pictureUrl = value.picture.medium
         this.userData.userId = value.id.name
       })
-      .catch((error) => {
+      .catch(error => {
         // handle error
         console.log(error)
       })
@@ -39,7 +39,7 @@ export default {
 <template>
   <div id="who-follow">
     <h1>Who to follow</h1>
-    <div class="people">
+    <!-- <div class="people">
       <div class="container">
         <img :src="userData.pictureUrl" alt="" />
         <div class="name">
@@ -52,22 +52,24 @@ export default {
         </div>
       </div>
       <button>Follow</button>
-    </div>
-    <div class="people">
-      <div class="container">
-        <img
-          src="https://100k-faces.glitch.me/random-image"
-          class="avatar-image"
-          alt=""
-        />
-        <div class="name">
-          <h3>McFly</h3>
-          <h4>@levraimcfly</h4>
+    </div> -->
+    <div class="peoples" v-for="index in 3" :key="index">
+      <div class="people">
+        <div class="container">
+          <img
+            src="https://100k-faces.glitch.me/random-image"
+            class="avatar-image"
+            alt=""
+          />
+          <div class="name">
+            <h3>McFly</h3>
+            <h4>@levraimcfly</h4>
+          </div>
         </div>
+        <button>Follow</button>
       </div>
-      <button>Follow</button>
     </div>
-    <div class="people">
+    <!-- <div class="people">
       <div class="container">
         <img :src="userData.pictureUrl" alt="" />
         <div class="name">
@@ -80,7 +82,7 @@ export default {
         </div>
       </div>
       <button>Follow</button>
-    </div>
+    </div> -->
     <h4 class="show-more">Show more</h4>
   </div>
 </template>
