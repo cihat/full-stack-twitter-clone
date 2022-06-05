@@ -2,13 +2,12 @@
 import axios from 'axios'
 import Icons from '@/components/Icons'
 import { mapActions } from 'vuex'
+import moment from 'moment'
 
 export default {
   name: 'tweet',
   data() {
-    return {
-      isLoading: false
-    }
+    return {}
   },
   props: {
     tweetData: {
@@ -20,14 +19,14 @@ export default {
   },
   methods: {
     ...mapActions('tweet', ['likeTweet']),
+    ...mapActions('tweet', ['fetchTweets']),
     async submitLikeTweet(tweetId) {
-      this.isLoading = true
       try {
         await this.likeTweet(tweetId)
       } catch (e) {
         console.log(e)
       } finally {
-        this.isLoading = false
+        this.fetchTweet()
       }
     }
   }
@@ -36,7 +35,7 @@ export default {
 
 <template>
   <div class="container-tweet">
-    <div id="tweet" v-if="!isLoading">
+    <div id="tweet">
       <router-link :to="{ path: `/${tweetData.author.username}` }" tag="a">
         <!-- <img :src="userData.pictureUrl" /> -->
         <img src="../../assets/img/twitter_egg_blue.png" alt="" />
@@ -58,7 +57,7 @@ export default {
                 {{ tweetData.author.username }}
               </p>
               <span>•</span>
-              <p class="date">{{ tweetData.createdAt }}</p>
+              <p class="date">{{ this.moment(tweetData.createdAt).fromNow() }}</p>
             </router-link>
           </div>
           <div class="tweet-body">
@@ -95,16 +94,13 @@ export default {
         </div>
       </div>
     </div>
-    <div v-else id="tweet">
-      <p>Loading⌛️</p>
-    </div>
   </div>
 </template>
 <style scoped lang="scss">
 #tweet {
   display: flex;
   align-items: flex-start;
-  padding: 1rem 31px 11px;
+  padding: 1rem 16px 11px;
   // cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 

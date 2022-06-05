@@ -5,6 +5,8 @@ import router from './router'
 import store from './store'
 import './assets/styles/index.scss'
 import { clickOutSideBind, clickOutSideUnBind } from './helper'
+import Toasted from 'vue-toasted'
+import moment from 'moment'
 
 import AuthLayout from './layouts/AuthLayout.vue'
 import DefaultLayout from './layouts/DefaultLayout.vue'
@@ -13,6 +15,9 @@ Vue.config.productionTip = false
 
 Vue.component('auth-layout', AuthLayout)
 Vue.component('default-layout', DefaultLayout)
+Vue.use(Toasted)
+
+Vue.prototype.moment = moment
 
 Vue.config.productionTip = false
 

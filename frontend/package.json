@@ -10,10 +10,12 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "moment": "^2.29.3",
     "pug-plain-loader": "^1.1.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
+    "vue-toasted": "^1.1.28",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
