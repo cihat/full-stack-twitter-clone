@@ -78,7 +78,7 @@ export default {
         </router-link>
       </li>
       <li>
-        <router-link to="/profile" tag="a">
+        <router-link :to="{ path: `/${user.username}` }" tag="a">
           <icons icon="profile-fill" v-if="$route.name === 'Profile'" />
           <icons icon="profile" v-else />
           <h4 :class="{ active: $route.name === 'Profile' }">Profile</h4>

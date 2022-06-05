@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import account from './account'
 import tweet from './tweet'
+import user from './user'
 
 Vue.use(Vuex)
 
@@ -18,7 +19,8 @@ axios.defaults.withCredentials = true
 const store = new Vuex.Store({
   modules: {
     account,
-    tweet
+    tweet,
+    user
   }
 })
 
