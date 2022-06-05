@@ -5,6 +5,11 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'tweet',
+  data() {
+    return {
+      isLoading: false
+    }
+  },
   props: {
     tweetData: {
       type: Object
@@ -13,13 +18,25 @@ export default {
   components: {
     Icons
   },
-  methods: {}
+  methods: {
+    ...mapActions('tweet', ['likeTweet']),
+    async submitLikeTweet(tweetId) {
+      this.isLoading = true
+      try {
+        await this.likeTweet(tweetId)
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.isLoading = false
+      }
+    }
+  }
 }
 </script>
 
 <template>
   <div class="container-tweet">
-    <div id="tweet">
+    <div id="tweet" v-if="!isLoading">
       <router-link :to="{ path: `/profile/${tweetData._id}` }" tag="a">
         <!-- <img :src="userData.pictureUrl" /> -->
         <img src="../../assets/img/twitter_egg_blue.png" alt="" />
@@ -58,7 +75,7 @@ export default {
             }}</span>
           </div>
           <div class="button" id="like">
-            <button>
+            <button @click="submitLikeTweet(tweetData._id)">
               <icons icon="like" />
             </button>
             <span v-show="tweetData.likes.length">{{
@@ -70,6 +87,9 @@ export default {
           </div>
         </div>
       </div>
+    </div>
+    <div v-else id="tweet">
+      <p>Loading⌛️</p>
     </div>
   </div>
 </template>

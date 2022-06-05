@@ -8,7 +8,8 @@ const mutations = {
 const actions = {
   CREATE_TWEET: 'createTweet',
   FETCH_TWEETS: 'fetchTweets',
-  INIT: 'init'
+  INIT: 'init',
+  LIKE_TWEET: 'likeTweet'
 }
 const tweet = {
   namespaced: true,
@@ -41,6 +42,12 @@ const tweet = {
     },
     async [actions.INIT]({ dispatch }) {
       await dispatch(actions.FETCH_TWEETS)
+    },
+    async [actions.LIKE_TWEET]({ commit, dispatch }, tweetId) {
+      const response = await axios.patch(`/tweet/${tweetId}/like`)
+      commit('setTweet', response.data)
+
+      dispatch(actions.FETCH_TWEETS)
     }
   }
 }
