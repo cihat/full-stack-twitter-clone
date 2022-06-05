@@ -11,6 +11,25 @@ class TweetService extends BaseService {
     return this.loadLimit(limit)
   }
 
+  async likeTweet(tweetId, userId) {
+    const likesId = []
+    const tweet = await this.find(tweetId)
+    if (!tweet) return null
+
+    const { likes } = tweet
+
+    likes.map((like) => likesId.push(like._id.toString()))
+
+    if (!likesId.includes(userId.toString())) {
+      tweet.likes.push(userId)
+      await tweet.save()
+    } else {
+      console.log('Tweet already liked')
+    }
+
+    return tweet
+  }
+
   // async tweet(userId, body) {
   //   const user = await userService.find(userId)
   //   const tweet = await this.insert({ user, body })

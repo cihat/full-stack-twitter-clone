@@ -61,6 +61,16 @@ exports.getTweets = async (req, res, next) => {
   }
 }
 
+exports.likeTweet = async (req, res, next) => {
+  
+  try {
+    const tweet = await tweetService.likeTweet(req.params.tweetId, req.user._id)
+    res.status(200).send(tweet)
+  } catch (error) {
+    return next(error)
+  }
+}
+
 // exports.getUsers = async (req, res) => {
 //   const users = await userService.load()
 
