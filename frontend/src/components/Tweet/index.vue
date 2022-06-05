@@ -22,7 +22,7 @@ export default {
     <div id="tweet">
       <router-link :to="{ path: `/profile/${tweetData._id}` }" tag="a">
         <!-- <img :src="userData.pictureUrl" /> -->
-        <img src="https://100k-faces.glitch.me/random-image" alt="" />
+        <img src="../../assets/img/twitter_egg_blue.png" alt="" />
       </router-link>
       <div class="tweet-content">
         <div class="user-info">

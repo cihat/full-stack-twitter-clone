@@ -57,7 +57,7 @@ export default {
       <div class="people">
         <div class="container">
           <img
-            src="https://100k-faces.glitch.me/random-image"
+            src="../../assets/img/twitter_egg_blue.png"
             class="avatar-image"
             alt=""
           />

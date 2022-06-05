@@ -43,7 +43,7 @@ export default {
 
 <template>
   <form id="zone-tweet" @submit="submitCreateTweet">
-    <img src="https://picsum.photos/200" class="avatar-image" />
+    <img src="../../assets/img/twitter_egg_blue.png" class="avatar-image" />
     <div class="input-context">
       <input
         type="text"
@@ -83,9 +83,6 @@ export default {
   padding-top: 8px;
   display: flex;
   align-items: flex-start;
-  img {
-    margin-right: 1rem;
-  }
   img.avatar-image {
     margin-right: 1rem;
     border-radius: 50%;

@@ -101,7 +101,11 @@ export default {
           v-on:click="showPopup"
           v-click-outside="hidePopup"
         >
-          <img class="user_image" src="https://picsum.photos/200" alt="" />
+          <img
+            class="user_image"
+            src="../../assets/img/twitter_egg_blue.png"
+            alt=""
+          />
           <div class="user_info">
             <p class="name">{{ user.name }}</p>
             <p class="username">{{ `@${user.username}` }}</p>
