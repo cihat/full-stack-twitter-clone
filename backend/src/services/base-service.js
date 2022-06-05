@@ -33,7 +33,7 @@ class BaseService {
   }
 
   async findBy(property, value) {
-    return this.model.findById({ [property]: value })
+    return this.model.findOne({ [property]: value })
   }
 }
 

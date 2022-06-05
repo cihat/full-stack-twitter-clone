@@ -6,6 +6,8 @@ router.post('/', tweetController.createTweet)
 
 router.get('/', tweetController.getTweets)
 
+router.get('/:tweetId', tweetController.getTweet)
+
 router.patch('/:tweetId/like', tweetController.likeTweet)
 
 // router.get('/', usersController.getUsers)
