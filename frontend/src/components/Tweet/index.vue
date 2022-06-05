@@ -37,30 +37,37 @@ export default {
 <template>
   <div class="container-tweet">
     <div id="tweet" v-if="!isLoading">
-      <router-link :to="{ path: `/profile/${tweetData._id}` }" tag="a">
+      <router-link :to="{ path: `/${tweetData.author.username}` }" tag="a">
         <!-- <img :src="userData.pictureUrl" /> -->
         <img src="../../assets/img/twitter_egg_blue.png" alt="" />
       </router-link>
       <div class="tweet-content">
-        <div class="user-info">
-          <router-link
-            :to="{ path: `/profile/${tweetData.author._id}` }"
-            tag="a"
-          >
-            <p class="name">{{ tweetData.author.name }}</p>
-            <p class="username" v-show="tweetData.author.username">
-              {{ tweetData.author.username }}
+        <router-link
+          :to="{
+            path: `/${tweetData.author.username}/status/${tweetData._id}`
+          }"
+          tag="a"
+        >
+          <div class="user-info">
+            <router-link
+              :to="{ path: `/${tweetData.author.username}` }"
+              tag="a"
+            >
+              <p class="name">{{ tweetData.author.name }}</p>
+              <p class="username" v-show="tweetData.author.username">
+                {{ tweetData.author.username }}
+              </p>
+              <span>•</span>
+              <p class="date">{{ tweetData.createdAt }}</p>
+            </router-link>
+          </div>
+          <div class="tweet-body">
+            <p>
+              {{ tweetData.content }}
+              <!-- <span class="hashtag">#{{ tweetData.author.username }}</span> -->
             </p>
-            <span>•</span>
-            <p class="date">{{ tweetData.createdAt }}</p>
-          </router-link>
-        </div>
-        <div class="tweet-body">
-          <p>
-            {{ tweetData.content }}
-            <!-- <span class="hashtag">#{{ tweetData.author.username }}</span> -->
-          </p>
-        </div>
+          </div>
+        </router-link>
         <div class="buttons">
           <div class="button" id="reply">
             <icons icon="comment" />
@@ -98,7 +105,7 @@ export default {
   display: flex;
   align-items: flex-start;
   padding: 1rem 31px 11px;
-  cursor: pointer;
+  // cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
   &:hover {
@@ -118,6 +125,7 @@ export default {
       align-items: flex-start;
       margin-bottom: 11px;
       a {
+        cursor: pointer;
         display: flex;
         align-items: flex-start;
       }
