@@ -2,14 +2,16 @@ import axios from 'axios'
 
 const mutations = {
   SET_TWEET: 'setTweet',
-  SET_TWEETS: 'setTweets'
+  SET_TWEETS: 'setTweets',
+  SET_GET_TWEET: 'setGetTweet'
 }
 
 const actions = {
   CREATE_TWEET: 'createTweet',
   FETCH_TWEETS: 'fetchTweets',
+  FETCH_TWEET: 'fetchTweet',
   INIT: 'init',
-  LIKE_TWEET: 'likeTweet'
+  LIKE_TWEET: 'likeTweet',
 }
 const tweet = {
   namespaced: true,
@@ -18,7 +20,8 @@ const tweet = {
     tweets: [],
     tweetId: null,
     tweetUser: null,
-    tweetUserId: null
+    tweetUserId: null,
+    getTweet: null,
   }),
   mutations: {
     [mutations.SET_TWEET](state, tweets) {
@@ -26,6 +29,9 @@ const tweet = {
     },
     [mutations.SET_TWEETS](state, tweets) {
       state.tweets = tweets
+    },
+    [mutations.SET_GET_TWEET](state, tweet) {
+      state.getTweet = tweet
     }
   },
   getters: {
@@ -39,6 +45,10 @@ const tweet = {
     async [actions.FETCH_TWEETS]({ commit }) {
       const response = await axios.get('/tweet')
       commit('setTweets', response.data)
+    },
+    async [actions.FETCH_TWEET]({ commit }, tweetId) {
+      const response = await axios.get(`/tweet/${tweetId}`)
+      commit('setGetTweet', response.data)
     },
     async [actions.INIT]({ dispatch }) {
       await dispatch(actions.FETCH_TWEETS)
