@@ -3,45 +3,49 @@ const User = require('../models/user')
 const tweetService = require('./tweet-service')
 
 class UserService extends BaseService {
-  async findByName(name) {
-    return this.findBy('name', name)
+  async findByUsername(username) {
+    return this.findBy('username', username)
   }
 
-  async tweet(userId, tweetId) {
-    const user = await this.find(userId)
+  // async findByName(name) {
+  //   return this.findBy('name', name)
+  // }
 
-    const tweet = await tweetService.insert({
-      user,
-      tweet
-    })
-    user?.tweets.push(tweet)
-    await user.save()
+  // async tweet(userId, tweetId) {
+  //   const user = await this.find(userId)
 
-    return tweet
-  }
+  //   const tweet = await tweetService.insert({
+  //     user,
+  //     tweet
+  //   })
+  //   user?.tweets.push(tweet)
+  //   await user.save()
 
-  async updateName(userId, name) {
-    const user = await this.find(userId)
-    user.name = name
+  //   return tweet
+  // }
 
-    await user.save()
-    return user
-  }
+  // async updateName(userId, name) {
+  //   const user = await this.find(userId)
+  //   user.name = name
 
-  async follow(userId, userToFollowId) {
-    const user = await this.find(userId)
-    const userToFollow = await this.find(userToFollowId)
+  //   await user.save()
+  //   return user
+  // }
 
-    if (userId == userToFollow) return
+  // async follow(userId, userToFollowId) {
+  //   const user = await this.find(userId)
+  //   const userToFollow = await this.find(userToFollowId)
 
-    user.following.push(userToFollow)
-    userToFollow.followers.push(user)
+  //   if (userId == userToFollow) return
 
-    await user.save()
-    await userToFollow.save()
+  //   user.following.push(userToFollow)
+  //   userToFollow.followers.push(user)
 
-    return user
-  }
+  //   await user.save()
+  //   await userToFollow.save()
+
+  //   return user
+  // }
 }
 
 module.exports = new UserService(User)
