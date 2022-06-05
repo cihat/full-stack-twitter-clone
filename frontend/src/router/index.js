@@ -13,6 +13,7 @@ import Register from '../views/Register.vue'
 import User from '../views/User.vue'
 import About from '../views/About.vue'
 import Login from '../views/Login.vue'
+import TweetDetail from '../views/TweetDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -52,7 +53,7 @@ export default function init(store) {
         }
       },
       {
-        path: '/',
+        path: '/home',
         name: 'Home',
         meta: { layout: 'default' },
         component: Home,
@@ -62,10 +63,10 @@ export default function init(store) {
         }
       },
       {
-        path: '/home',
-        name: 'Home',
+        path: '/:username/status/:tweetId',
+        name: 'TweetDetail',
         meta: { layout: 'default' },
-        component: Home,
+        component: TweetDetail,
         beforeEnter(to, from, next) {
           if (!store.state.account.user) return next('/login')
           return next()
@@ -152,16 +153,6 @@ export default function init(store) {
         }
       },
       {
-        path: '/profile',
-        name: 'Profile',
-        meta: { layout: 'default' },
-        component: Profile,
-        beforeEnter(to, from, next) {
-          if (!store.state.account.user) return next('/login')
-          return next()
-        }
-      },
-      {
         path: '/more',
         name: 'More',
         meta: { layout: 'default' },
@@ -172,13 +163,23 @@ export default function init(store) {
         }
       },
       {
-        path: '/*',
+        path: '/:username',
+        name: 'Profile',
         meta: { layout: 'default' },
+        component: Profile,
         beforeEnter(to, from, next) {
           if (!store.state.account.user) return next('/login')
           return next()
         }
       }
+      // {
+      //   path: '/*',
+      //   meta: { layout: 'default' },
+      //   beforeEnter(to, from, next) {
+      //     if (!store.state.account.user) return next('/login')
+      //     return next('/')
+      //   }
+      // }
     ]
   })
 }

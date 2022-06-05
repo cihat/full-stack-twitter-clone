@@ -1,22 +1,26 @@
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 import Tweet from '@/components/Tweet'
 
 export default {
   name: 'Profile',
   data() {
     return {
-      userId: '',
-      userData: {},
-      isLoading: true,
-      errMessage: ''
+      username: ''
     }
   },
   components: {
     Tweet
   },
+  created() {
+    this.username = this.$route.params.username
+    this.fetchUser(this.username)
+  },
   computed: {
-    ...mapGetters('account', ['user'])
+    ...mapState('user', ['user'])
+  },
+  methods: {
+    ...mapActions('user', ['fetchUser'])
   }
 }
 </script>
@@ -25,23 +29,21 @@ export default {
   <div class="profile">
     <h1>This is an profile page</h1>
     <br />
-    <h2>User Name: {{ user.name }}</h2>
+    <h2>User Name: {{ user.name }} @{{ user.username }}</h2>
     <br />
     <h2>{{ user.name }}'s {{ user.tweets.length }} Tweets</h2>
-    <p v-if="errMessage">{{ errMessage }}</p>
-    <p v-else-if="isLoading">Please wait..⌛️.</p>
-    <div v-else>
-      <Tweet :accountData="user" />
-    </div>
     <br />
     <h2>{{ user.following.length }} following</h2>
     <br />
     <h2>{{ user.followers.length }} followers</h2>
     <br />
+    <h3>website: {{ user.website }}</h3>
+    <br />
+    <h3>Location: {{ user.location }}</h3>
+    <br />
+    <h3>Bio: {{ user.bio }}</h3>
+    <br />
     <h1>{{ user.likedTweets.length }} liked tweets</h1>
-    <div>
-      <Tweet :accountData="user.likedTweets" />
-    </div>
     <br />
     <h1>{{ user.retweets.length }} retweets</h1>
     <div>
