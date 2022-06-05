@@ -24,6 +24,14 @@ export default {
       this.backendErrors = null
       this.loading = false
 
+      if (!this.tweet.trim()) {
+        return this.$toasted.show('Tweet cannot be empty', {
+          type: 'error',
+          duration: 2000,
+          position: 'top-center'
+        })
+      }
+
       try {
         await this.createTweet({
           content: this.tweet,
@@ -62,7 +70,10 @@ export default {
           <icons icon="schedule" />
         </div>
         <div class="right-icon">
-          <button type="primary" html-type="submit" block="block">Tweet</button>
+          <button type="primary" html-type="submit" block="block">
+            <!-- :disabled="!tweet" -->
+            Tweet
+          </button>
         </div>
       </div>
     </div>
@@ -78,7 +89,7 @@ export default {
 #zone-tweet {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  width: 600px;
+  // width: 600px;
   padding-left: 1rem;
   padding-top: 8px;
   display: flex;
@@ -161,6 +172,10 @@ export default {
         }
         button:focus {
           outline: 0;
+        }
+        button:disabled {
+          background-color: #e6e6e6;
+          color: #828282;
         }
       }
     }
