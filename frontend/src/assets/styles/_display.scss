@@ -1,0 +1,31 @@
+.block {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+.flex {
+  display: flex;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.full-content {
+  height: calc(100vh - 80px);
+}
+
+@each $key, $value in $breakpoints {
+  @media only screen and (min-width: $value) {
+    .block-#{$key} {
+      display: block;
+    }
+    .hidden-#{$key} {
+      display: none;
+    }
+    .flex-#{$key} {
+      display: flex;
+    }
+  }
+}

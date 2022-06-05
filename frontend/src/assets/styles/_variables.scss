@@ -1,0 +1,50 @@
+$colors: (
+  'alpha': #111,
+  'beta': #111,
+  'beta_light': #111,
+  'gamma': #111,
+  'delta': #111,
+  'theta': #111,
+  'epsilon': #111,
+  'zeta': #111,
+  'lambda': #111,
+  'sigma': #111,
+  'error': #111,
+  /////
+  'primary': #111,
+  'text': #111,
+  'orange': #111,
+  'cloudyBlue': #111,
+  'descriptionGray': #111,
+  'marketingGray': #111,
+  'banner': #111,
+);
+
+// Padding and margin space value for each 1 to 12 values
+$space: 5px !default;
+
+//Base unit used for spacing gutters
+$base-unit: 15px;
+
+//Screen Sizes
+$screen-xs: 576px;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1200px;
+$screen-xl: 1440px;
+
+$container-max-widths: (
+  'xs': 556px,
+  'sm': 748px,
+  'md': 924px,
+  'lg': 1100px,
+  'xl': 1338px,
+);
+
+$breakpoints: (
+  'xs': $screen-xs,
+  'sm': $screen-sm,
+  'md': $screen-md,
+  'lg': $screen-lg,
+  'xl': $screen-xl,
+);
