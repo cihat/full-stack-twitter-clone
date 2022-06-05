@@ -25,8 +25,8 @@ export default {
   top: 0;
   left: 0;
   max-width: 251px;
-  padding-left: 12px;
-  padding-right: 12px;
+  position: sticky;
+  margin-right: 0px;
 
   .twitter-icon {
     padding: 0.7rem;

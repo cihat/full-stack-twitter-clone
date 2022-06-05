@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <div id="sidebar-right" class="dneme">
+  <div id="sidebar-right">
     <search-trend id="search-trend" />
     <who-follow id="who-follow" />
     <side-bar-right-footer id="footer" />
@@ -28,8 +28,9 @@ export default {
 
 <style scoped lang="scss">
 #sidebar-right {
-  display: block;
-  max-width: 350px;
+  top: 0;
+  right: 0;
+  position: sticky;
   @media (max-width: 1176px) {
     html {
       font-size: 12px;

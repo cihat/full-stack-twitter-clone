@@ -131,9 +131,6 @@ export default {
   ul {
     align-content: center;
     padding: auto;
-    margin-right: 3rem;
-    position: sticky;
-    top: 15px;
     height: calc(100vh - 50px);
 
     li {

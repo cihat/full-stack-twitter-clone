@@ -37,7 +37,6 @@ export default {
   top: calc(314px + 1rem + 24px);
   width: 350px;
   margin-top: 16px;
-  margin-left: 25px;
   padding-left: 16px;
   padding-right: 16px;
 

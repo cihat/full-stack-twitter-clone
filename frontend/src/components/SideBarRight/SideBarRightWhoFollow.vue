@@ -94,7 +94,6 @@ export default {
   width: 350px;
   margin-top: 0.2rem;
   margin-bottom: 24px;
-  margin-left: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;

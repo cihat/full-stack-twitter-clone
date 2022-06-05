@@ -12,25 +12,58 @@ export default {
 
 <template>
   <div class="layout">
-    <SideBarLeft />
-    <router-view id="router-view" />
-    <SideBarRight />
+    <div class="container">
+      <div class="grid grid-center">
+        <div
+          class="col col-12 col-xs-12 col-md-3 col-lg-3 sidebar_left_container"
+        >
+          <SideBarLeft />
+        </div>
+        <div
+          class="col col-12 col-xs-12 col-md-9 col-lg-6 router_view_container"
+        >
+          <router-view id="router-view" />
+        </div>
+
+        <div
+          class="col col-12 col-xs-12 col-md-0 col-lg-3 sidebar_right_container"
+        >
+          <SideBarRight />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.layout {
-  // display: grid;
-  // grid-template-columns: 275px 600px 350px;
-  // grid-gap: 40px;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
+.container {
+  position: relative;
 }
 
-#router-view {
-  flex: auto;
-  max-width: 600px;
-  // flex-grow: 40;
+.sidebar_left_container {
+  max-width: 260px;
 }
+
+.router_view_container {
+  max-width: 600px;
+}
+
+.sidebar_right_container {
+  max-width: 350px;
+}
+
+// .layout {
+//   // display: grid;
+//   // grid-template-columns: 275px 600px 350px;
+//   // grid-gap: 40px;
+//   display: flex;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+// #router-view {
+//   flex: auto;
+//   max-width: 600px;
+//   // flex-grow: 40;
+// }
 </style>

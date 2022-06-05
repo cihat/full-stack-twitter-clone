@@ -77,7 +77,6 @@ export default {
   width: 350px;
   margin-top: 0.2rem;
   margin-bottom: 24px;
-  margin-left: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -134,7 +133,7 @@ export default {
       .section {
         border-radius: 50%;
         box-sizing: content-box;
-        padding: .5rem;
+        padding: 0.5rem;
         &:hover {
           background-color: rgba(#1da1f2, 0.1);
           fill: #1da1f2;
