@@ -51,11 +51,21 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(__dirname + '/public'))
 
+const whiteList = [
+  'http://localhost:8080',
+  'https://full-stack-twitter-clone-frontend.vercel.app/',
+  'https://full-stack-twitter-clone-frontend-git-master-cihat.vercel.app/',
+  'https://full-stack-twitter-clone-frontend-cihat.vercel.app/'
+]
+
 const corsOptions = {
-  origin: [
-    'http://localhost:8080',
-    'https://full-stack-twitter-clone-frontend.vercel.app/'
-  ],
+  origin: function (origin, callback) {
+    if (whiteList.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
