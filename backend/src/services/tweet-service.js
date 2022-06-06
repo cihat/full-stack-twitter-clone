@@ -14,6 +14,7 @@ class TweetService extends BaseService {
   async likeTweet(tweetId, userId) {
     const likesId = []
     const tweet = await this.find(tweetId)
+    const user = await userService.find(userId)
     if (!tweet) return null
 
     const { likes } = tweet
@@ -22,7 +23,10 @@ class TweetService extends BaseService {
 
     if (!likesId.includes(userId.toString())) {
       tweet.likes.push(userId)
+      user.likedTweets.push(tweetId)
+
       await tweet.save()
+      await user.save()
     } else {
       console.log('Tweet already liked')
     }
