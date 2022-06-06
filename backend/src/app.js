@@ -50,12 +50,20 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(__dirname + '/public'))
-app.use(
-  cors({
-    origin: true,
-    credentials: true
-  })
-)
+
+const corsOptions = {
+  origin: [
+    'http://localhost:8080',
+    'https://full-stack-twitter-clone-frontend.vercel.app/'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  exposedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200,
+  preflightContinue: false
+}
+app.use(cors(corsOptions))
 
 app.all('*', (req, res, next) => {
   req.body = sanitize(req.body)
