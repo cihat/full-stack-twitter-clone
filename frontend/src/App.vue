@@ -35,23 +35,4 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-#app {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 100vh;
-  min-width: 100vw;
-  .layout-wrapper {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  #router-view {
-    flex: auto;
-    max-width: 600px;
-    // flex-grow: 40;
-  }
-}
 </style>
