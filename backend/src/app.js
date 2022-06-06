@@ -60,7 +60,12 @@ const whiteList = [
   'http://localhost:8080',
   'https://full-stack-twitter-clone-frontend.vercel.app/',
   'https://full-stack-twitter-clone-frontend-git-master-cihat.vercel.app/',
-  'https://full-stack-twitter-clone-frontend-cihat.vercel.app/'
+  'https://full-stack-twitter-clone-frontend-cihat.vercel.app/',
+  'https://full-stack-twitter-clone-back.herokuapp.com/',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api/auth',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api/tweets',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api/users'
 ]
 
 const corsOptions = {
