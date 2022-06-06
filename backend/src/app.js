@@ -71,7 +71,15 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
   exposedHeaders: ['Content-Type', 'Authorization'],
   optionsSuccessStatus: 200,
-  preflightContinue: false
+  preflightContinue: false,
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Expose-Headers': 'Content-Type, Authorization'
+    // 'Access-Control-Max-Age': 14 * 24 * 60 * 60 * 1000
+  }
 }
 app.use(cors(corsOptions))
 
