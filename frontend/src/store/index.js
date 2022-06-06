@@ -8,10 +8,10 @@ import user from './user'
 
 Vue.use(Vuex)
 
-if (process.env.ENV === 'development') {
-  axios.defaults.baseURL = `${process.env.VUE_APP_API_URL_PROD}`
-} else {
+if (process.env.VUE_APP_ENV === 'development') {
   axios.defaults.baseURL = `${process.env.VUE_APP_API_URL_DEV}`
+} else {
+  axios.defaults.baseURL = `${process.env.VUE_APP_API_URL_PROD}`
 }
 
 axios.defaults.withCredentials = true
