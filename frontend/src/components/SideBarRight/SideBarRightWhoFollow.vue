@@ -12,26 +12,6 @@ export default {
         userId: null
       }
     }
-  },
-  created() {
-    axios
-      .get('https://100k-faces.glitch.me/random-image')
-      .then(response => {
-        // handle success
-        const value = [...response.data.results][0]
-        // console.log(value);
-        this.userData.firstName = value.name.first
-        this.userData.lastName = value.name.last
-        this.userData.pictureUrl = value.picture.medium
-        this.userData.userId = value.id.name
-      })
-      .catch(error => {
-        // handle error
-        console.log(error)
-      })
-      .then(() => {
-        // console.log(this.userData);
-      })
   }
 }
 </script>
