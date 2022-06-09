@@ -10,6 +10,8 @@ router.get('/:tweetId', tweetController.getTweet)
 
 router.patch('/:tweetId/like', tweetController.likeTweet)
 
+router.patch('/:tweetId/retweet', tweetController.retweet)
+
 // router.get('/', usersController.getUsers)
 
 // router.post('/', usersController.postUser)

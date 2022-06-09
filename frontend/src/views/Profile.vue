@@ -45,7 +45,7 @@ export default {
     <br />
     <h1>{{ user.likedTweets.length }} liked tweets</h1>
     <br />
-    <h1>{{ user.retweets.length }} retweets</h1>
+    <h1>{{ user.retweetedTweets.length }} retweets</h1>
     <div>
       <Tweet :accountData="user.retweets" />
     </div>

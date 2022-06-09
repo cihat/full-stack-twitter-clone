@@ -20,6 +20,7 @@ export default {
   methods: {
     ...mapActions('tweet', ['likeTweet']),
     ...mapActions('tweet', ['fetchTweets']),
+    ...mapActions('tweet', ['retweet']),
     async submitLikeTweet(tweetId) {
       try {
         await this.likeTweet(tweetId)
@@ -28,6 +29,17 @@ export default {
       } finally {
         this.fetchTweet()
       }
+    },
+    async submitRetweet(tweetId) {
+      console.log('retweet')
+      try {
+        await this.retweet(tweetId)
+      } catch (e) {
+        console.log(e)
+      }
+      // finally {
+      //   this.fetchTweet()
+      // }
     }
   }
 }
@@ -57,7 +69,9 @@ export default {
                 {{ tweetData.author.username }}
               </p>
               <span>•</span>
-              <p class="date">{{ this.moment(tweetData.createdAt).fromNow() }}</p>
+              <p class="date">
+                {{ this.moment(tweetData.createdAt).fromNow() }}
+              </p>
             </router-link>
           </div>
           <div class="tweet-body">
@@ -74,11 +88,15 @@ export default {
               {{ tweetData.quoteTweets.length }}
             </span>
           </div>
-          <div class="button" id="retweet">
+          <div
+            class="button"
+            id="retweet"
+            @click="submitRetweet(tweetData._id)"
+          >
             <icons icon="retweet" />
-            <span v-show="tweetData.retweets.length">{{
-              tweetData.replies.length
-            }}</span>
+            <span v-show="tweetData.retweets.length">
+              {{ tweetData.retweets.length }}
+            </span>
           </div>
           <div class="button" id="like">
             <button @click="submitLikeTweet(tweetData._id)">

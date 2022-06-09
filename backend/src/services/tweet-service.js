@@ -34,6 +34,27 @@ class TweetService extends BaseService {
     return tweet
   }
 
+  async retweet(tweetId, userId) {
+    const retweetId = []
+    const tweet = await this.find(tweetId)
+    const user = await userService.find(userId)
+    if (!tweet) return null
+
+    const { retweets } = tweet
+
+    retweets.map((retweet) => retweetId.push(retweet._id.toString()))
+
+    if (!retweetId.includes(userId.toString())) {
+      tweet.retweets.push(userId)
+      user.retweetedTweets.push(tweetId)
+
+      await tweet.save()
+      await user.save()
+    }
+
+    return tweet
+  }
+
   // async tweet(userId, body) {
   //   const user = await userService.find(userId)
   //   const tweet = await this.insert({ user, body })

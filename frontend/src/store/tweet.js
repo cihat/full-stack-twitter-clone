@@ -12,6 +12,7 @@ const actions = {
   FETCH_TWEET: 'fetchTweet',
   INIT: 'init',
   LIKE_TWEET: 'likeTweet',
+  RETWEET: 'retweet'
 }
 const tweet = {
   namespaced: true,
@@ -21,7 +22,7 @@ const tweet = {
     tweetId: null,
     tweetUser: null,
     tweetUserId: null,
-    getTweet: null,
+    getTweet: null
   }),
   mutations: {
     [mutations.SET_TWEET](state, tweets) {
@@ -55,6 +56,12 @@ const tweet = {
     },
     async [actions.LIKE_TWEET]({ commit, dispatch }, tweetId) {
       const response = await axios.patch(`/tweet/${tweetId}/like`)
+      commit('setTweet', response.data)
+
+      dispatch(actions.FETCH_TWEETS)
+    },
+    async [actions.RETWEET]({ commit, dispatch }, tweetId) {
+      const response = await axios.patch(`/tweet/${tweetId}/retweet`)
       commit('setTweet', response.data)
 
       dispatch(actions.FETCH_TWEETS)

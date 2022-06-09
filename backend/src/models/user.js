@@ -56,7 +56,7 @@ const userSchema = new Schema(
         }
       }
     ],
-    retweets: [
+    retweetedTweets: [
       {
         type: 'ObjectId',
         ref: 'Tweet',
