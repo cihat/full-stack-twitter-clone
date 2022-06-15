@@ -28,7 +28,7 @@ export default {
         return this.$toasted.show('Tweet cannot be empty', {
           type: 'error',
           duration: 2000,
-          position: 'top-center'
+          position: 'bottom-right'
         })
       }
 
