@@ -1,6 +1,9 @@
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex'
 import Tweet from '@/components/Tweet'
+import ProfileHeader from '@/components/Profile/Header'
+import HeaderFoto from '@/components/Profile/HeaderFoto'
+import ProfileInfo from '@/components/Profile/ProfileInfo'
 
 export default {
   name: 'Profile',
@@ -10,7 +13,10 @@ export default {
     }
   },
   components: {
-    Tweet
+    Tweet,
+    ProfileHeader,
+    HeaderFoto,
+    ProfileInfo
   },
   created() {
     this.username = this.$route.params.username
@@ -26,35 +32,17 @@ export default {
 </script>
 
 <template>
-  <div class="profile">
-    <h1>This is an profile page</h1>
-    <br />
-    <h2>User Name: {{ user.name }} @{{ user.username }}</h2>
-    <br />
-    <h2>{{ user.name }}'s {{ user.tweets.length }} Tweets</h2>
-    <br />
-    <h2>{{ user.following.length }} following</h2>
-    <br />
-    <h2>{{ user.followers.length }} followers</h2>
-    <br />
-    <h3>website: {{ user.website }}</h3>
-    <br />
-    <h3>Location: {{ user.location }}</h3>
-    <br />
-    <h3>Bio: {{ user.bio }}</h3>
-    <br />
-    <h1>{{ user.likedTweets.length }} liked tweets</h1>
-    <br />
-    <h1>{{ user.retweetedTweets.length }} retweets</h1>
-    <div>
-      <Tweet :accountData="user.retweets" />
+  <div class="profile container">
+    <div class="grid grid-center">
+      <ProfileHeader :user="user" />
+      <HeaderFoto />
+      <ProfileInfo :user="user" />
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .profile {
-  width: 600px;
-  margin-top: 1rem;
+  padding: 0;
 }
 </style>
