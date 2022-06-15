@@ -13,6 +13,7 @@
     "moment": "^2.29.3",
     "pug-plain-loader": "^1.1.0",
     "register-service-worker": "^1.7.1",
+    "skeleton-loader-vue": "^1.0.10",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vue-toasted": "^1.1.28",

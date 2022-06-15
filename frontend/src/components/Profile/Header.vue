@@ -33,6 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .profile_header_wrapper {
+  min-height: 53px;
   width: 100%;
   display: flex;
   align-items: center;

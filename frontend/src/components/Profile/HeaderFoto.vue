@@ -1,16 +1,66 @@
 <script>
+import SkeletonLoaderVue from 'skeleton-loader-vue'
 export default {
-  name: 'HeaderFoto'
+  name: 'HeaderFoto',
+  data() {
+    return {
+      isLoadedBannerImage: false,
+      isLoadedProfileImage: false
+    }
+  },
+  components: {
+    SkeletonLoaderVue
+  },
+  methods: {
+    onBannerImageLoad() {
+      this.isLoadedBannerImage = true
+    },
+    onProfileImageLoad() {
+      this.isLoadedBannerImage = true
+    }
+  }
 }
 </script>
 
 <template>
   <div class="profile_foto_container">
     <div class="banner_wrapper">
-      <img src="https://picsum.photos/800/400" alt="profile banner foto" />
+      <SkeletonLoaderVue
+        v-if="!isLoadedBannerImage"
+        type="rect"
+        :width="600"
+        :height="200"
+        animation="fade"
+        class="banner_foto"
+      />
+
+      <img
+        v-else
+        class="banner_foto"
+        src="https://picsum.photos/800/400"
+        alt="profile banner foto"
+        loading="lazy"
+        @load="onBannerImageLoad"
+      />
     </div>
     <div class="profile_foto_container">
-      <img src="https://picsum.photos/800/400" alt="profile foto" />
+      <SkeletonLoaderVue
+        v-if="isLoadedProfileImage"
+        class="profile_foto"
+        type="circle"
+        :width="135"
+        :height="135"
+        animation="fade"
+      />
+
+      <img
+        v-else
+        class="profile_foto"
+        src="https://picsum.photos/800/400"
+        alt="profile foto"
+        @load="onProfileImageLoad"
+        loading="lazy"
+      />
     </div>
     <div class="edit_profile_wrapper">
       <button>Edit Profile</button>
@@ -21,8 +71,10 @@ export default {
 <style lang="scss" scoped>
 .profile_foto_container {
   position: relative;
+
   .banner_wrapper {
-    img {
+    min-height: 200px;
+    .banner_foto {
       width: 600px;
       height: auto;
       max-height: 200px;
@@ -35,7 +87,7 @@ export default {
     position: absolute;
     top: 133px;
     left: 20px;
-    img {
+    .profile_foto {
       width: 135px;
       height: 135px;
       max-height: 200px;
