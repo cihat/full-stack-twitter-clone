@@ -46,6 +46,8 @@ export default {
 
 .router_view_container {
   max-width: 600px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0 !important;
 }
 
 .sidebar_right_container {

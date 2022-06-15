@@ -42,7 +42,7 @@ export default {
 .home {
   // max-width: 600px;
   // min-width: 598px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  // border: 1px solid rgba(0, 0, 0, 0.08);
 
   .title {
     display: flex;
