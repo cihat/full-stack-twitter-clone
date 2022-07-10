@@ -13,15 +13,19 @@ const passport = require('passport')
 const User = require('./models/user')
 const sanitize = require('express-mongo-sanitize').sanitize
 const { errors } = require('celebrate')
-
 const cors = require('cors')
 
 const app = express()
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  next()
-})
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === 'production'
+        ? 'https://full-stack-twitter-clone-frontend.vercel.app'
+        : true,
+    credentials: true
+  })
+)
 
 app.use(
   session({
@@ -68,21 +72,21 @@ app.use(express.static(__dirname + '/public'))
 //   'https://full-stack-twitter-clone-back.herokuapp.com/api/users'
 // ]
 
-const corsOptions = {
-  // origin: function (origin, callback) {
-  //   if (whiteList.indexOf(origin) !== -1) {
-  //     callback(null, true)
-  //   } else {
-  //     callback(new Error('Not allowed by CORS'))
-  //   }
-  // },
-  origin:
-    process.env.NODE_ENV === 'production'
-      ? 'https://full-stack-twitter-clone-frontend.vercel.app/'
-      : true,
-  credentials: true
-}
-app.use(cors(corsOptions))
+// const corsOptions = {
+//   // origin: function (origin, callback) {
+//   //   if (whiteList.indexOf(origin) !== -1) {
+//   //     callback(null, true)
+//   //   } else {
+//   //     callback(new Error('Not allowed by CORS'))
+//   //   }
+//   // },
+//   origin:
+//     process.env.NODE_ENV === 'production'
+//       ? 'https://full-stack-twitter-clone-frontend.vercel.app/'
+//       : true,
+//   credentials: true
+// }
+// app.use(cors(corsOptions))
 
 app.all('*', (req, res, next) => {
   req.body = sanitize(req.body)
