@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios'
 import Icons from '@/components/Icons'
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import moment from 'moment'
 
 export default {
@@ -17,17 +17,23 @@ export default {
   components: {
     Icons
   },
+  computed: {
+    ...mapState('tweet', ['tweet'])
+  },
   methods: {
     ...mapActions('tweet', ['likeTweet']),
+    ...mapActions('tweet', ['fetchTweet']),
     ...mapActions('tweet', ['fetchTweets']),
     ...mapActions('tweet', ['retweet']),
+
     async submitLikeTweet(tweetId) {
       try {
         await this.likeTweet(tweetId)
       } catch (e) {
         console.log(e)
-      } finally {
-        this.fetchTweet()
+      }
+      finally {
+        this.fetchTweets()
       }
     },
     async submitRetweet(tweetId) {
@@ -37,9 +43,9 @@ export default {
       } catch (e) {
         console.log(e)
       }
-      // finally {
-      //   this.fetchTweet()
-      // }
+      finally {
+        this.fetchTweets()
+      }
     }
   }
 }

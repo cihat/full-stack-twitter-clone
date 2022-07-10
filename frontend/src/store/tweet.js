@@ -3,7 +3,6 @@ import axios from 'axios'
 const mutations = {
   SET_TWEET: 'setTweet',
   SET_TWEETS: 'setTweets',
-  SET_GET_TWEET: 'setGetTweet'
 }
 
 const actions = {
@@ -25,15 +24,12 @@ const tweet = {
     getTweet: null
   }),
   mutations: {
-    [mutations.SET_TWEET](state, tweets) {
-      state.tweets = tweets
+    [mutations.SET_TWEET](state, tweet) {
+      state.tweet = tweet
     },
     [mutations.SET_TWEETS](state, tweets) {
       state.tweets = tweets
     },
-    [mutations.SET_GET_TWEET](state, tweet) {
-      state.getTweet = tweet
-    }
   },
   getters: {
     tweets: state => state.tweets
@@ -49,7 +45,7 @@ const tweet = {
     },
     async [actions.FETCH_TWEET]({ commit }, tweetId) {
       const response = await axios.get(`/api/tweet/${tweetId}`)
-      commit('setGetTweet', response.data)
+      commit('setTweet', response.data)
     },
     async [actions.INIT]({ dispatch }) {
       await dispatch(actions.FETCH_TWEETS)
@@ -57,53 +53,18 @@ const tweet = {
     async [actions.LIKE_TWEET]({ commit, dispatch }, tweetId) {
       const response = await axios.patch(`/api/tweet/${tweetId}/like`)
       commit('setTweet', response.data)
+      // dispatch(actions.FETCH_TWEETS)
 
-      dispatch(actions.FETCH_TWEETS)
+      // dispatch(actions.FETCH_TWEET, tweetId)
     },
     async [actions.RETWEET]({ commit, dispatch }, tweetId) {
       const response = await axios.patch(`/api/tweet/${tweetId}/retweet`)
       commit('setTweet', response.data)
+      // dispatch(actions.FETCH_TWEETS)
 
-      dispatch(actions.FETCH_TWEETS)
+      // dispatch(actions.FETCH_TWEET, tweetId)
     }
   }
 }
 
 export default tweet
-
-// export default createStore({
-//   state: {
-//     isLogin: true
-//   },
-//   mutations: {
-//     toggleLoginStatus(state, payload) {
-//       if (state) state.isLogin = true
-//       return
-//     }
-//   },
-//   actions: {
-//     async fetchUsers() {
-//       const request = await axios.get('/users')
-//       return request.data
-//     },
-//     async fetchUser({ state }, userId) {
-//       const request = await axios.get(`/users/${userId}`)
-
-//       return request.data
-//     },
-//     async createTweet({ state }, tweetBody) {
-//       const tweet = await axios.post(`/users/${state.user._id}/tweets`, {
-//         body: tweetBody
-//       })
-
-//       return tweet.data
-//     },
-//     async likeTweet({ state }, tweetId) {
-//       const tweet = await axios.patch(`/users/61ab8726363e9600169a2939/like`, {
-//         likeTweetId: tweetId
-//       })
-
-//       return tweet.data
-//     }
-//   }
-// })

@@ -8,13 +8,13 @@ export default {
   },
   data() {
     return {
-      tweet: '',
+      // tweet: '',
       loading: false,
       backendErrors: null
     }
   },
   computed: {
-    ...mapState('tweet', ['getTweet'])
+    ...mapState('tweet', ['tweet'])
   },
   methods: {
     ...mapActions('tweet', ['fetchTweet'])
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <Tweet :tweetData="getTweet" />
+  <Tweet :tweetData="tweet" />
 </template>
 
 <style lang="scss" scoped></style>
