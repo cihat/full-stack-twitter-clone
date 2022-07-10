@@ -57,6 +57,7 @@ export default {
         type="text"
         v-model="tweet"
         placeholder="What's happening?"
+        autoComplete="off"
         name="content"
         maxlength="140"
         minlength="1"
