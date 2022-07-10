@@ -28,7 +28,11 @@ class TweetService extends BaseService {
       await tweet.save()
       await user.save()
     } else {
-      console.log('Tweet already liked')
+      tweet.likes = tweet.likes.filter((like) => like._id.toString() !== userId.toString())
+      user.likedTweets = user.likedTweets.filter((like) => like.toString() !== tweetId.toString())
+
+      await tweet.save()
+      await user.save()
     }
 
     return tweet
@@ -47,6 +51,12 @@ class TweetService extends BaseService {
     if (!retweetId.includes(userId.toString())) {
       tweet.retweets.push(userId)
       user.retweetedTweets.push(tweetId)
+
+      await tweet.save()
+      await user.save()
+    } else {
+      tweet.retweets = tweet.retweets.filter((retweet) => retweet._id.toString() !== userId.toString())
+      user.retweetedTweets = user.retweetedTweets.filter((retweet) => retweet.toString() !== tweetId.toString())
 
       await tweet.save()
       await user.save()
