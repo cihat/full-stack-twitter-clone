@@ -21,7 +21,7 @@ const user = {
   getters: {},
   actions: {
     async [actions.FETCH_USER]({ commit }, username) {
-      const user = await axios.get(`/user/${username}`)
+      const user = await axios.get(`/api/user/${username}`)
 
       commit(mutations.SET_USER, user.data)
     }

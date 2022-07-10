@@ -40,28 +40,28 @@ const tweet = {
   },
   actions: {
     async [actions.CREATE_TWEET]({ commit }, tweet) {
-      const response = await axios.post('/tweet', tweet)
+      const response = await axios.post('/api/tweet', tweet)
       commit('setTweet', response.data)
     },
     async [actions.FETCH_TWEETS]({ commit }) {
-      const response = await axios.get('/tweet')
+      const response = await axios.get('/api/tweet')
       commit('setTweets', response.data)
     },
     async [actions.FETCH_TWEET]({ commit }, tweetId) {
-      const response = await axios.get(`/tweet/${tweetId}`)
+      const response = await axios.get(`/api/tweet/${tweetId}`)
       commit('setGetTweet', response.data)
     },
     async [actions.INIT]({ dispatch }) {
       await dispatch(actions.FETCH_TWEETS)
     },
     async [actions.LIKE_TWEET]({ commit, dispatch }, tweetId) {
-      const response = await axios.patch(`/tweet/${tweetId}/like`)
+      const response = await axios.patch(`/api/tweet/${tweetId}/like`)
       commit('setTweet', response.data)
 
       dispatch(actions.FETCH_TWEETS)
     },
     async [actions.RETWEET]({ commit, dispatch }, tweetId) {
-      const response = await axios.patch(`/tweet/${tweetId}/retweet`)
+      const response = await axios.patch(`/api/tweet/${tweetId}/retweet`)
       commit('setTweet', response.data)
 
       dispatch(actions.FETCH_TWEETS)
