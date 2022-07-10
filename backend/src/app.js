@@ -17,15 +17,44 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(
-  cors({
-    origin:
-      process.env.NODE_ENV === 'production'
-        ? 'https://full-stack-twitter-clone-frontend.vercel.app'
-        : true,
-    credentials: true
-  })
-)
+// app.use(
+//   cors({
+//     origin:
+//       process.env.NODE_ENV === 'production'
+//         ? 'https://full-stack-twitter-clone-frontend.vercel.app'
+//         : 'http://localhost:8081',
+//     credentials: true
+//   })
+// )
+
+const whiteList = [
+  'http://localhost:8080',
+  'https://full-stack-twitter-clone-frontend.vercel.app/',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api/auth/session',
+  'https://full-stack-twitter-clone-frontend-git-master-cihat.vercel.app/',
+  'https://full-stack-twitter-clone-frontend-cihat.vercel.app/',
+  'https://full-stack-twitter-clone-back.herokuapp.com/',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api/auth',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api/tweets',
+  'https://full-stack-twitter-clone-back.herokuapp.com/api/users'
+]
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whiteList.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  // origin:
+  //   process.env.NODE_ENV === 'production'
+  //     ? 'https://full-stack-twitter-clone-frontend.vercel.app/'
+  //     : true,
+  credentials: true
+}
+app.use(cors(corsOptions))
 
 app.use(
   session({
@@ -60,33 +89,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(__dirname + '/public'))
 
-// const whiteList = [
-//   'http://localhost:8080',
-//   'https://full-stack-twitter-clone-frontend.vercel.app/',
-//   'https://full-stack-twitter-clone-frontend-git-master-cihat.vercel.app/',
-//   'https://full-stack-twitter-clone-frontend-cihat.vercel.app/',
-//   'https://full-stack-twitter-clone-back.herokuapp.com/',
-//   'https://full-stack-twitter-clone-back.herokuapp.com/api',
-//   'https://full-stack-twitter-clone-back.herokuapp.com/api/auth',
-//   'https://full-stack-twitter-clone-back.herokuapp.com/api/tweets',
-//   'https://full-stack-twitter-clone-back.herokuapp.com/api/users'
-// ]
-
-// const corsOptions = {
-//   // origin: function (origin, callback) {
-//   //   if (whiteList.indexOf(origin) !== -1) {
-//   //     callback(null, true)
-//   //   } else {
-//   //     callback(new Error('Not allowed by CORS'))
-//   //   }
-//   // },
-//   origin:
-//     process.env.NODE_ENV === 'production'
-//       ? 'https://full-stack-twitter-clone-frontend.vercel.app/'
-//       : true,
-//   credentials: true
-// }
-// app.use(cors(corsOptions))
 
 app.all('*', (req, res, next) => {
   req.body = sanitize(req.body)
