@@ -7,12 +7,12 @@ services:
   backend:
     build: backend
     environment:
-      MONGODB_CONNECTION_STRING: "mongodb://mongodb/twitter-clone"
+      MONGODB_CONNECTION_STRING: "mongodb://mongodb/twitter-clone" # error here: mongodb's port is forwared to 37017. Either change it here or forward it to 21017
     ports:
       - 3000:3000
   mongodb:
     image: mongo:4.2
     ports:
-      - 37017:27017
+      - 27017:27017 # changed 31017 to 21017
     volumes:
       - ./data:/data/db
