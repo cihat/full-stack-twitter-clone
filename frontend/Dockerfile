@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "yarn", "serve" ]
+CMD [ "yarn", "dev" ]
